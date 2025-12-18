@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamfuz | Authentic Nepali Cuisine</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="assets/images/Logo Tag.png" alt="Lamfuz Logo" class="logo-img">
+                </div>
+                <ul class="menu-tabs">
+                    <li><a href="#hero" data-en="FRONT" data-da="FORSIDE">FRONT</a></li>
+                    <li><a href="#menu" data-en="MENU" data-da="MENU">MENU</a></li>
+                    <li><a href="#about" data-en="ABOUT LAMFUZ" data-da="OM LAMFUZ">ABOUT LAMFUZ</a></li>
+                    <li><a href="#contact" data-en="CONTACT" data-da="KONTAKT">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="lang-selector">
+                    <a href="#" class="lang-link active" data-lang="en">EN</a>
+                    <span class="lang-divider">/</span>
+                    <a href="#" class="lang-link" data-lang="da">DA</a>
+                </div>
+                <a href="#booking" class="btn-book" data-en="Book a Table" data-da="Bestil et bord">Book a Table</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="video-container">
+                <!-- Poster image for initial load and mobile fallback -->
+                <video 
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline 
+                    poster="assets/images/hero-poster.jpg" 
+                    class="hero-video"
+                    id="heroVideo"
+                >
+                    <source src="assets/video/hero-bg.webm" type="video/webm">
+                    <source src="assets/video/hero-bg.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            
+            <div class="hero-content">
+                <h1 data-en="Food with soul, spices and love" data-da="Mad med sjæl, krydderier og kærlighed">Food with soul, spices and love</h1>
+                <div class="hero-btns">
+                    <a href="#booking" class="btn-primary" data-en="BOOK A TABLE" data-da="BESTIL ET BORD">BOOK A TABLE</a>
+                    <a href="#menu" class="btn-secondary" data-en="OUR MENU" data-da="VORES MENU">OUR MENU</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="reservation-section">
+            <div class="reservation-container">
+                <!-- Left Column: Reservation Widget -->
+                <div class="reservation-widget-col">
+                    <div class="white-card">
+                        <div class="red-panel">
+                            <div class="calendar-header">
+                                <span class="arrow">&lt;</span>
+                                <span class="month-year">DECEMBER 2025</span>
+                                <span class="arrow">&gt;</span>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="day-name">Mon</div>
+                                <div class="day-name">Tue</div>
+                                <div class="day-name">Wed</div>
+                                <div class="day-name">Thu</div>
+                                <div class="day-name">Fri</div>
+                                <div class="day-name">Sat</div>
+                                <div class="day-name">Sun</div>
+                                
+                                <!-- Calendar Days (Simplified for visual accuracy) -->
+                                <div class="day inactive">24</div>
+                                <div class="day inactive">25</div>
+                                <div class="day inactive">26</div>
+                                <div class="day inactive">27</div>
+                                <div class="day inactive">28</div>
+                                <div class="day inactive">29</div>
+                                <div class="day inactive">30</div>
+                                
+                                <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+                                <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+                                <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+                                <div class="day selected-red">18</div>
+                                <div class="day selected-blue">19</div>
+                                <div class="day selected-blue">20</div>
+                                <div class="day">21</div>
+                                <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+                                <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+                            </div>
+
+                            <div class="reservation-form">
+                                <div class="form-group">
+                                    <label>No of guests:</label>
+                                    <select class="guest-select">
+                                        <option>2 guests</option>
+                                        <option>3 guests</option>
+                                        <option>4 guests</option>
+                                    </select>
+                                </div>
+                                <button class="btn-continue">CONTINUE</button>
+                            </div>
+
+                            <div class="reservation-footer">
+                                <p>For parties over 8, please email us at<br>
+                                <a href="mailto:booking@lamfuz.dk">booking@lamfuz.dk</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Text Content -->
+                <div class="reservation-text-col">
+                    <h4 class="sub-heading">NEPALI CUISINE WITH SOUL</h4>
+                    <h2 class="main-heading">A TASTE OF NEPAL CREATED WITH LOVE AND TRADITION</h2>
+                    <p class="description">
+                        At Lamfuz, authentic recipes, freshly roasted spices and
+                        local ingredients come together in an experience that
+                        brings the warm flavors of Nepal to the heart of
+                        Copenhagen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 data-en="Our Story" data-da="Vores Historie">Our Story</h2>
+                <p data-en="Lamfuz brings the finest Danish culinary traditions to your table. From classic Smørrebrød to modern Nordic interpretations, every dish is a celebration of seasonal ingredients and heritage." data-da="Lamfuz bringer de fineste danske kulinariske traditioner til dit bord. Fra klassisk smørrebrød til moderne nordiske fortolkninger, hver ret er en fejring af sæsonens råvarer og arv.">Lamfuz brings the finest Danish culinary traditions to your table. From classic Smørrebrød to modern Nordic interpretations, every dish is a celebration of seasonal ingredients and heritage.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-en="&copy; 2025 Lamfuz Danish Restaurant. All rights reserved." data-da="&copy; 2025 Lamfuz Dansk Restaurant. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Danish Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

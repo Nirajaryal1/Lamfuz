@@ -1,0 +1,26 @@
+{
+  "name": "lamfuz",
+  "version": "1.0.0",
+  "description": "Danish Restaurant Website",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nirajaryal1/Lamfuz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nirajaryal1/Lamfuz/issues"
+  },
+  "homepage": "https://github.com/Nirajaryal1/Lamfuz#readme",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}
