@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Amagro';
-    src: url('assets/fonts/Amagro-Bold.otf') format('opentype');
-    font-weight: bold;
+    src: url('/assets/fonts/Amagro.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
