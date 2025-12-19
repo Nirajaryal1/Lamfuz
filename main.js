@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ============ MOBILE HAMBURGER MENU ============
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header') && !e.target.closest('.mobile-menu')) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+
     // ============ SCROLL EFFECTS ============
     let lastScrollTop = 0;
     let scrollDirection = 'down';
