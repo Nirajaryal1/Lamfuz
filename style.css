@@ -11,6 +11,63 @@
     --text-color: #ffffff;
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --font-heading: 'Amagro', serif;
+    --accent-saffron: #d69a3d; /* Saffron/gold accent */
+}
+
+/* Mandala overlay utility */
+.mandala-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/public/assets/images/mandala.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60%;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* Micro-animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-delay-1 {
+    animation-delay: 0.2s;
+}
+
+.fade-in-delay-2 {
+    animation-delay: 0.4s;
+}
+
+.fade-in-delay-3 {
+    animation-delay: 0.6s;
 }
 
 * {
@@ -54,6 +111,11 @@ nav {
 .logo-img {
     height: 45px;
     width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .menu-tabs {
@@ -70,11 +132,28 @@ nav a {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 nav a:hover {
     color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 .nav-right {
@@ -114,6 +193,8 @@ nav a:hover {
     background: #d64545; /* Mild red */
     border-color: #d64545;
     color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(214, 69, 69, 0.3);
 }
 
 /* Hero Section */
@@ -202,6 +283,8 @@ nav a:hover {
 .btn-primary:hover {
     background: #b33a3a; /* Darker red on hover */
     border-color: #b33a3a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(214, 69, 69, 0.3);
 }
 
 .btn-secondary {
@@ -212,6 +295,8 @@ nav a:hover {
 .btn-secondary:hover {
     background: white;
     color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Sections */
@@ -686,6 +771,14 @@ h2 {
     align-items: baseline;
     margin-bottom: 1.5rem;
     color: #d64545;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.menu-item-simple:hover {
+    background-color: rgba(214, 69, 69, 0.05);
+    transform: translateX(5px);
 }
 
 .item-dots {
@@ -843,6 +936,22 @@ h2 {
     color: #d64545;
     padding: 8rem 4rem 2rem;
     border-top: 1px solid rgba(214, 69, 69, 0.1);
+    box-shadow: inset 0 6px 0 rgba(214,154,61,0.08); /* saffron accent */
+}
+
+.main-footer .footer-title {
+    position: relative;
+}
+
+.main-footer .footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-saffron), #d64545);
+    border-radius: 2px;
 }
 
 .footer-container {

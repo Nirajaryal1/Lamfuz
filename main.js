@@ -68,10 +68,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Load preferred language on startup
-    const savedLang = localStorage.getItem('preferredLang');
-    if (savedLang && savedLang !== 'en') {
-        const targetLink = document.querySelector(`.lang-link[data-lang="${savedLang}"]`);
-        if (targetLink) targetLink.click();
-    }
+    // Intersection Observer for Fade-in Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for fade-in
+    const fadeElements = document.querySelectorAll('.section, .gallery-container, .menu-section, .about-content, .contact-container, .experience-grid, .reservation-container');
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Smooth Scrolling for Anchor Links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            if (targetId !== '#') {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
 });
