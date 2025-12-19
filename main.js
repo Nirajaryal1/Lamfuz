@@ -48,6 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Menu Accordion Logic
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
     // Load preferred language on startup
     const savedLang = localStorage.getItem('preferredLang');
     if (savedLang && savedLang !== 'en') {
