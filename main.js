@@ -1,20 +1,87 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ============ SCROLL EFFECTS ============
+    let lastScrollTop = 0;
+    let scrollDirection = 'down';
+    let hideTimeout;
+    const header = document.querySelector('header');
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    document.body.appendChild(progressBar);
+
+    // Sticky navigation - Show/Hide based on scroll direction
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        // Update scroll progress bar
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = scrollPercent + '%';
+
+        // Determine scroll direction
+        if (scrollTop > lastScrollTop) {
+            scrollDirection = 'down';
+        } else {
+            scrollDirection = 'up';
+        }
+
+        // Smart header visibility - hide when scrolling down (after hero), show when scrolling up
+        if (scrollDirection === 'down' && scrollTop > 200) {
+            // Scrolling DOWN - hide nav
+            header.classList.add('scroll-hide');
+            header.classList.remove('scroll-show');
+            clearTimeout(hideTimeout);
+        } else {
+            // Scrolling UP or at top - show nav with smooth animation
+            header.classList.remove('scroll-hide');
+            header.classList.add('scroll-show');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+        // Parallax effect for hero sections
+        const heroSection = document.querySelector('.hero-section');
+        if (heroSection) {
+            const parallaxAmount = scrollTop * 0.5;
+            heroSection.style.backgroundPosition = `center ${parallaxAmount}px`;
+        }
+
+        // Floating effect for cards and elements
+        document.querySelectorAll('.experience-card, .gallery-item').forEach((el, index) => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            const floatAmount = (scrollTop * 0.3 + index * 20) % 360;
+            
+            if (elementTop < windowHeight && elementTop > -elementTop) {
+                el.style.transform = `translateY(${Math.sin(floatAmount * Math.PI / 180) * 8}px)`;
+            }
+        });
+
+        // Scale effect for images on scroll
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            const rect = img.getBoundingClientRect();
+            const elementCenter = rect.top + rect.height / 2;
+            const windowCenter = window.innerHeight / 2;
+            const distance = Math.abs(elementCenter - windowCenter);
+            const maxDistance = window.innerHeight;
+            const scale = 1 - (distance / maxDistance) * 0.1;
+            img.style.transform = `scale(${scale})`;
+        });
+    }, { passive: true });
+
+    // Video autoplay
     const video = document.getElementById('heroVideo');
     
     if (video) {
-        // Ensure video plays with autoplay and muted for better browser compatibility
         video.play().catch(error => {
             console.warn('Video autoplay failed:', error);
-            // Browser might block autoplay - video will play on user interaction
         });
 
         video.addEventListener('loadeddata', () => {
-            // Fade in the video once it has started loading data
             video.classList.add('loaded');
         });
     }
 
-    // Translation Dictionary for menu items and other content
+    // ============ TRANSLATION DICTIONARY ============
     const translationDictionary = {
         'Appetizers': { en: 'Appetizers', da: 'Forretter' },
         'Starters': { en: 'Starters', da: 'Forretter' },
