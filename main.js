@@ -2,25 +2,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = document.getElementById('heroVideo');
     
     if (video) {
-        // Optimization: Only play video if not on a low-power mode or slow connection
-        // Most browsers handle this automatically with 'autoplay', but we can be explicit
-        
+        // Ensure video plays with autoplay and muted for better browser compatibility
+        video.play().catch(error => {
+            console.warn('Video autoplay failed:', error);
+            // Browser might block autoplay - video will play on user interaction
+        });
+
         video.addEventListener('loadeddata', () => {
             // Fade in the video once it has started loading data
             video.classList.add('loaded');
         });
-
-        // Optional: Disable video on mobile to save data and battery
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        if (isMobile) {
-            // On mobile, we might want to stop the video from even trying to load
-            // and just rely on the 'poster' attribute in HTML
-            video.pause();
-            video.removeAttribute('autoplay');
-            // video.style.display = 'none'; // Or keep it for the poster
-        }
     }
+
+    // Translation Dictionary for menu items and other content
+    const translationDictionary = {
+        'Appetizers': { en: 'Appetizers', da: 'Forretter' },
+        'Starters': { en: 'Starters', da: 'Forretter' },
+        'Main Courses': { en: 'Main Courses', da: 'Hovedretter' },
+        "Children's Menu": { en: "Children's Menu", da: 'Børnemenu' },
+        'Extras': { en: 'Extras', da: 'Tillæg' },
+        'Desserts & Dips': { en: 'Desserts & Dips', da: 'Desserter & Dips' },
+        'Papad': { en: 'Papad', da: 'Papad' },
+        'Thinly toasted crispy made from lentil flour': { en: 'Thinly toasted crispy made from lentil flour', da: 'Tyndt ristet sprødt lavet af linsemel' },
+        'Cucumber Bites': { en: 'Cucumber Bites', da: 'Agurkebidder' },
+        'Freshly seasoned with sesame, coriander and lemon juice': { en: 'Freshly seasoned with sesame, coriander and lemon juice', da: 'Frisk krydret med sesamfrø, koriander og citronsaft' },
+        'Salad bowl': { en: 'Salad bowl', da: 'Salatskål' },
+        'Crispy vegetable salad with sesame, green chili, coriander and turmeric oil (+ chicken DKK 39 / shrimp DKK 59 / tofu DKK 39)': { en: 'Crispy vegetable salad with sesame, green chili, coriander and turmeric oil (+ chicken DKK 39 / shrimp DKK 59 / tofu DKK 39)', da: 'Sprød grøntsalat med sesamfrø, grøn chili, koriander og kurkumamel (+ kylling DKK 39 / rejer DKK 59 / tofu DKK 39)' },
+        'MoMo (5 pcs)': { en: 'MoMo (5 pcs)', da: 'MoMo (5 stk)' },
+        'Chicken or Vegan. Steamed Nepalese dumplings with sesame-tomato chutney': { en: 'Chicken or Vegan. Steamed Nepalese dumplings with sesame-tomato chutney', da: 'Kylling eller Vegan. Dampede nepalesiske dumplings med sesamtomat chutney' },
+        'Chicken Choila': { en: 'Chicken Choila', da: 'Kylling Choila' },
+        'Grilled chicken with onion, garlic, chili, coriander and Nepalese spices': { en: 'Grilled chicken with onion, garlic, chili, coriander and Nepalese spices', da: 'Grillet kylling med løg, hvidløg, chili, koriander og nepalesiske krydderier' },
+        'Spicy Shrimp': { en: 'Spicy Shrimp', da: 'Krydret Rejer' },
+        'Pan-fried shrimp with onion, garlic, chili, coriander and Nepalese spices': { en: 'Pan-fried shrimp with onion, garlic, chili, coriander and Nepalese spices', da: 'Stegede rejer med løg, hvidløg, chili, koriander og nepalesiske krydderier' },
+        'Mushroom Choila': { en: 'Mushroom Choila', da: 'Svamp Choila' },
+        'Fried mushrooms with onion, garlic, chili, coriander and Nepalese spices': { en: 'Fried mushrooms with onion, garlic, chili, coriander and Nepalese spices', da: 'Stegede svampe med løg, hvidløg, chili, koriander og nepalesiske krydderier' },
+        'MoMo Big (10 pcs)': { en: 'MoMo Big (10 pcs)', da: 'MoMo Big (10 stk)' },
+        'Chicken or Vegan. Steamed dumplings with sesame-tomato chutney': { en: 'Chicken or Vegan. Steamed dumplings with sesame-tomato chutney', da: 'Kylling eller Vegan. Dampede dumplings med sesamtomat chutney' },
+        'Chow Mein': { en: 'Chow Mein', da: 'Chow Mein' },
+        'Chicken/Vegan | Shrimp DKK 145. Fried Nepalese noodles with vegetables': { en: 'Chicken/Vegan | Shrimp DKK 145. Fried Nepalese noodles with vegetables', da: 'Kylling/Vegan | Rejer DKK 145. Stegt nepalesiske nudler med grøntsager' },
+        'Fried Rice': { en: 'Fried Rice', da: 'Stegt Ris' },
+        'Chicken/Vegan | Shrimp DKK 145. Fried Nepalese rice with vegetables': { en: 'Chicken/Vegan | Shrimp DKK 145. Fried Nepalese rice with vegetables', da: 'Kylling/Vegan | Rejer DKK 145. Stegt nepalesisk ris med grøntsager' },
+        'Jhol MoMo (8 pcs)': { en: 'Jhol MoMo (8 pcs)', da: 'Jhol MoMo (8 stk)' },
+        'Chicken/Vegan. Steamed dumplings in hot soup (minimum 2 people)': { en: 'Chicken/Vegan. Steamed dumplings in hot soup (minimum 2 people)', da: 'Kylling/Vegan. Dampede dumplings i varm suppe (minimum 2 personer)' },
+        'Dhal Bhat Platter': { en: 'Dhal Bhat Platter', da: 'Dhal Bhat Tallerken' },
+        'Pre-order, min. 2 people. Rice, dhal, yogurt, pickle and special Lamfuz sauce': { en: 'Pre-order, min. 2 people. Rice, dhal, yogurt, pickle and special Lamfuz sauce', da: 'Bestil på forhånd, min. 2 personer. Ris, dhal, yogurt, syltet og speciel Lamfuz sauce' },
+        'Chicken with rice': { en: 'Chicken with rice', da: 'Kylling med ris' },
+        'Served with fried vegetables': { en: 'Served with fried vegetables', da: 'Serveret med stegt grøntsager' },
+        'Dhal with rice': { en: 'Dhal with rice', da: 'Dhal med ris' },
+        'Rice': { en: 'Rice', da: 'Ris' },
+        'Fried Vegetables': { en: 'Fried Vegetables', da: 'Stegt Grøntsager' },
+        'Dal': { en: 'Dal', da: 'Dal' },
+        'Saw': { en: 'Saw', da: 'Saag' },
+        'Fermented Pickles': { en: 'Fermented Pickles', da: 'Gærede Syltede Grøntsager' },
+        'Dessert of the Day': { en: 'Dessert of the Day', da: 'Dagens Dessert' },
+        'Ice cream': { en: 'Ice cream', da: 'Is' },
+        'Tomato Chutney': { en: 'Tomato Chutney', da: 'Tomat Chutney' },
+        'Chili Sauce': { en: 'Chili Sauce', da: 'Chili Sauce' },
+        'MoMo Chutney': { en: 'MoMo Chutney', da: 'MoMo Chutney' },
+        'SEE THE FULL MENU': { en: 'SEE THE FULL MENU', da: 'SE FULD MENU' },
+        'EXPERIENCE LAMFUZ': { en: 'EXPERIENCE LAMFUZ', da: 'OPLEV LAMFUZ' },
+        'THE TASTE OF NEPAL – MIDDLE IN COPENHAGEN': { en: 'THE TASTE OF NEPAL – MIDDLE IN COPENHAGEN', da: 'SMAGEN AF NEPAL – MIDT I KØBENHAVN' },
+        'Authentic Nepalese cuisine': { en: 'Authentic Nepalese cuisine', da: 'Autentisk nepalesisk køkken' },
+        'Taste Nepal\'s authentic spices.': { en: 'Taste Nepal\'s authentic spices.', da: 'Smag Nepals autentiske krydderier.' },
+        'Created with passion': { en: 'Created with passion', da: 'Skabt med passion' },
+        'We only use carefully selected raw materials and nothing else.': { en: 'We only use carefully selected raw materials and nothing else.', da: 'Vi bruger kun nøje udvalgte råvarer og intet andet.' },
+        'Fresh, local ingredients': { en: 'Fresh, local ingredients', da: 'Friske, lokale ingredienser' },
+        'Each dish is created by Nepalese chefs with expertise and love.': { en: 'Each dish is created by Nepalese chefs with expertise and love.', da: 'Hver ret er skabt af nepalesiske kokke med ekspertise og kærlighed.' },
+        'Cozy atmosphere': { en: 'Cozy atmosphere', da: 'Hyggelig atmosfære' },
+        'A warm and atmospheric place where Nepal comes alive in Copenhagen.': { en: 'A warm and atmospheric place where Nepal comes alive in Copenhagen.', da: 'Et varmt og atmosfærisk sted hvor Nepal kommer til live i København.' },
+        'Opening hours': { en: 'Opening hours', da: 'Åbningstider' },
+        'Monday – Saturday': { en: 'Monday – Saturday', da: 'Mandag – Lørdag' },
+        '4:00 PM – 10:00 PM': { en: '4:00 PM – 10:00 PM', da: '16:00 – 22:00' },
+        'Last arrival: 9:30 PM': { en: 'Last arrival: 9:30 PM', da: 'Sidste ankomst: 21:30' },
+        'Tabs': { en: 'Tabs', da: 'Faner' },
+        'Front': { en: 'Front', da: 'Forside' },
+        'Menu': { en: 'Menu', da: 'Menu' },
+        'About Lamfuz': { en: 'About Lamfuz', da: 'Om Lamfuz' },
+        'Contact': { en: 'Contact', da: 'Kontakt' },
+        'About': { en: 'About', da: 'Om os' },
+        'Discover more from Lamfuz': { en: 'Discover more from Lamfuz', da: 'Opdag mere fra Lamfuz' },
+        'Social': { en: 'Social', da: 'Sociale medier' }
+    };
 
     // Language Switcher Logic
     const langLinks = document.querySelectorAll('.lang-link');
@@ -35,11 +97,29 @@ document.addEventListener('DOMContentLoaded', () => {
             langLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            // Update text content
+            // Update text content for elements with data-en/data-da
             translatableElements.forEach(el => {
                 const translation = el.getAttribute(`data-${lang}`);
                 if (translation) {
                     el.textContent = translation;
+                }
+            });
+
+            // Update input placeholders
+            document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+                const placeholder = el.getAttribute(`data-placeholder-${lang}`);
+                if (placeholder) {
+                    el.placeholder = placeholder;
+                }
+            });
+
+            // Update all other text nodes using translation dictionary
+            document.querySelectorAll('*').forEach(element => {
+                if (element.children.length === 0) { // Only process leaf nodes (text-only elements)
+                    const text = element.textContent?.trim();
+                    if (text && translationDictionary[text]) {
+                        element.textContent = translationDictionary[text][lang];
+                    }
                 }
             });
 
