@@ -1312,27 +1312,61 @@ header.scroll-show .hamburger span {
     color: #d69a3d !important;
 }
 
-/* Mobile Tablet Responsive - 768px and below */
-@media (max-width: 768px) {
+/* Mobile Tablet Responsive - 1024px and below */
+@media (max-width: 1024px) {
     /* Header adjustments */
     header {
-        padding: 1rem 1.5rem;
+        padding: 0.8rem 1.2rem !important;
+        position: fixed !important;
+        top: 0 !important;
+        transform: translateY(0) !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+        border-bottom: 1px solid rgba(214, 154, 61, 0.1) !important;
+    }
+
+    /* Force dark text on mobile header since background is now always light */
+    header nav a, 
+    header .lang-link,
+    header .mobile-lang-link {
+        color: #1a1a1a !important;
+    }
+
+    header .mobile-lang-link {
+        color: rgba(26, 26, 26, 0.5) !important;
+    }
+
+    header .mobile-lang-link.active {
+        color: #1a1a1a !important;
+        background: rgba(26, 26, 26, 0.05) !important;
+    }
+
+    header .hamburger span {
+        background-color: #1a1a1a !important;
     }
 
     .menu-tabs {
-        display: none;
+        display: none !important;
+    }
+
+    nav .btn-book {
+        display: none !important;
     }
 
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
 
     .lang-selector {
-        display: none;
+        display: none !important;
     }
 
     .mobile-lang-selector {
-        display: flex;
+        display: flex !important;
+        align-items: center;
+        gap: 0.3rem;
     }
 
     .nav-left {
@@ -1340,7 +1374,12 @@ header.scroll-show .hamburger span {
     }
 
     .nav-right {
-        gap: 0.8rem;
+        gap: 1.2rem;
+    }
+
+    .mobile-menu {
+        top: 60px; /* Adjusted for mobile header height */
+        z-index: 99;
     }
 
     /* Hero section */
