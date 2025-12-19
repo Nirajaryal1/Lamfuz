@@ -181,45 +181,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Language Switcher Logic
     const langLinks = document.querySelectorAll('.lang-link');
+    const mobileLangLinks = document.querySelectorAll('.mobile-lang-link');
     const translatableElements = document.querySelectorAll('[data-en]');
+
+    const updateLanguage = (lang) => {
+        // Update active state in desktop UI
+        langLinks.forEach(l => l.classList.remove('active'));
+        document.querySelector(`.lang-link[data-lang="${lang}"]`)?.classList.add('active');
+
+        // Update active state in mobile UI
+        mobileLangLinks.forEach(l => l.classList.remove('active'));
+        document.querySelector(`.mobile-lang-link[data-lang="${lang}"]`)?.classList.add('active');
+
+        // Update text content for elements with data-en/data-da
+        translatableElements.forEach(el => {
+            const translation = el.getAttribute(`data-${lang}`);
+            if (translation) {
+                el.textContent = translation;
+            }
+        });
+
+        // Update input placeholders
+        document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+            const placeholder = el.getAttribute(`data-placeholder-${lang}`);
+            if (placeholder) {
+                el.placeholder = placeholder;
+            }
+        });
+
+        // Update all other text nodes using translation dictionary
+        document.querySelectorAll('*').forEach(element => {
+            if (element.children.length === 0) { // Only process leaf nodes (text-only elements)
+                const text = element.textContent?.trim();
+                if (text && translationDictionary[text]) {
+                    element.textContent = translationDictionary[text][lang];
+                }
+            }
+        });
+    };
 
     langLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const lang = link.getAttribute('data-lang');
+            updateLanguage(lang);
+        });
+    });
 
-            // Update active state in UI
-            langLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            // Update text content for elements with data-en/data-da
-            translatableElements.forEach(el => {
-                const translation = el.getAttribute(`data-${lang}`);
-                if (translation) {
-                    el.textContent = translation;
-                }
-            });
-
-            // Update input placeholders
-            document.querySelectorAll('[data-placeholder-en]').forEach(el => {
-                const placeholder = el.getAttribute(`data-placeholder-${lang}`);
-                if (placeholder) {
-                    el.placeholder = placeholder;
-                }
-            });
-
-            // Update all other text nodes using translation dictionary
-            document.querySelectorAll('*').forEach(element => {
-                if (element.children.length === 0) { // Only process leaf nodes (text-only elements)
-                    const text = element.textContent?.trim();
-                    if (text && translationDictionary[text]) {
-                        element.textContent = translationDictionary[text][lang];
-                    }
-                }
-            });
-
-            // Optional: Save preference to localStorage
-            localStorage.setItem('preferredLang', lang);
+    mobileLangLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = link.getAttribute('data-lang');
+            updateLanguage(lang);
         });
     });
 
