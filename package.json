@@ -1,7 +1,7 @@
 {
   "name": "lamfuz",
   "version": "1.0.0",
-  "description": "Danish Restaurant Website",
+  "description": "Lamfuz - Authentic Nepali Restaurant in Copenhagen, Denmark. Experience traditional Nepali cuisine with fresh ingredients and warm hospitality.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,14 +12,23 @@
     "type": "git",
     "url": "git+https://github.com/Nirajaryal1/Lamfuz.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Nepali restaurant",
+    "Copenhagen restaurant",
+    "authentic Nepali cuisine",
+    "Nepali food",
+    "restaurant Denmark",
+    "Himalayan cuisine",
+    "momo",
+    "dal bhat",
+    "reservation"
+  ],
+  "author": "Lamfuz Restaurant",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Nirajaryal1/Lamfuz/issues"
   },
-  "homepage": "https://github.com/Nirajaryal1/Lamfuz#readme",
+  "homepage": "https://lamfuz.dk",
   "devDependencies": {
     "vite": "^7.3.0"
   }

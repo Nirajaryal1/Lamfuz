@@ -1,0 +1,34 @@
+# Robots.txt for Lamfuz Restaurant - lamfuz.dk
+# Allow search engines to crawl and index the website
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /menu.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /assets/
+Allow: /style.css
+Allow: /main.js
+
+# Disallow private or unnecessary files
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /*.json
+Disallow: /*.lock
+
+# Sitemap location
+Sitemap: https://lamfuz.dk/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# User agents
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
