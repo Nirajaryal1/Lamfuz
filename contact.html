@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://lamfuz.dk/contact.html">
     <meta property="og:title" content="Contact Us | Lamfuz Restaurant">
     <meta property="og:description" content="Get in touch with Lamfuz. Reserve your table, find directions, and contact information.">
-    <meta property="og:image" content="https://lamfuz.dk/assets/images/Space-1_1-1_Side-lg.webp">
+    <meta property="og:image" content="https://lamfuz.dk/public/assets/images/Space-1_1-1_Side-lg.webp">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -296,6 +296,26 @@
         .back-home:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                height: 35vh;
+            }
+            .contact-intro {
+                padding: 0 1.5rem;
+                text-align: center;
+            }
+            .contact-grid {
+                gap: 2rem;
+                padding: 0 1.5rem;
+            }
+            .contact-info-box, .contact-form-wrapper {
+                padding: 2rem 1.5rem;
+            }
+            .map-section {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body class="contact-page">
@@ -303,7 +323,7 @@
         <nav>
             <div class="nav-left">
                 <div class="logo">
-                    <a href="index.html"><img src="assets/images/Logo Tag.png" alt="Lamfuz Logo" class="logo-img"></a>
+                    <a href="index.html"><img src="./public/assets/images/Logo Tag.png" alt="Lamfuz Logo" class="logo-img"></a>
                 </div>
                 <ul class="menu-tabs">
                     <li><a href="index.html#hero">FRONT</a></li>
@@ -323,7 +343,7 @@
                     <span class="mobile-lang-divider">/</span>
                     <a href="#" class="mobile-lang-link" data-lang="da">DA</a>
                 </div>
-                <a href="index.html#booking" class="btn-book">Book a Table</a>
+                <a href="index.html#booking" class="btn-book" data-en="Book" data-da="Bestil">Book</a>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -333,11 +353,11 @@
         </nav>
     </header>
     <div class="mobile-menu">
-        <a href="index.html#hero" class="mobile-nav-link">FRONT</a>
-        <a href="menu.html" class="mobile-nav-link">MENU</a>
-        <a href="about.html" class="mobile-nav-link">ABOUT LAMFUZ</a>
-        <a href="contact.html" class="mobile-nav-link">CONTACT</a>
-        <a href="index.html#booking" class="mobile-nav-link">Book a Table</a>
+        <a href="index.html#hero" class="mobile-nav-link" data-en="FRONT" data-da="FORSIDE">FRONT</a>
+        <a href="menu.html" class="mobile-nav-link" data-en="MENU" data-da="MENU">MENU</a>
+        <a href="about.html" class="mobile-nav-link" data-en="ABOUT LAMFUZ" data-da="OM LAMFUZ">ABOUT LAMFUZ</a>
+        <a href="contact.html" class="mobile-nav-link" data-en="CONTACT" data-da="KONTAKT">CONTACT</a>
+        <a href="index.html#booking" class="mobile-nav-link" data-en="Book" data-da="Bestil">Book</a>
     </div>
 
     <section class="contact-hero">
@@ -428,27 +448,27 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-col">
-                <h3 class="footer-title">Opening hours</h3>
-                <p>Monday – Saturday</p>
-                <p>4:00 PM – 10:00 PM</p>
-                <p class="footer-note">Last arrival: 9:30 PM</p>
+                <h3 class="footer-title" data-en="Opening hours" data-da="Åbningstider">Opening hours</h3>
+                <p data-en="Monday – Saturday" data-da="Mandag – Lørdag">Monday – Saturday</p>
+                <p data-en="4:00 PM – 10:00 PM" data-da="16:00 – 22:00">4:00 PM – 10:00 PM</p>
+                <p class="footer-note" data-en="Last arrival: 9:30 PM" data-da="Sidste ankomst: 21:30">Last arrival: 9:30 PM</p>
             </div>
 
             <div class="footer-col">
-                <h3 class="footer-title">Tabs</h3>
+                <h3 class="footer-title" data-en="Tabs" data-da="Faner">Tabs</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html#hero">Front</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About Lamfuz</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html#hero" data-en="Front" data-da="Forside">Front</a></li>
+                    <li><a href="menu.html" data-en="Menu" data-da="Menu">Menu</a></li>
+                    <li><a href="about.html" data-en="About Lamfuz" data-da="Om Lamfuz">About Lamfuz</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-da="Kontakt">Contact</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h3 class="footer-title">About</h3>
-                <p><a href="about.html">Discover more from Lamfuz</a></p>
+                <h3 class="footer-title" data-en="About" data-da="Om os">About</h3>
+                <p><a href="about.html" data-en="Discover more from Lamfuz" data-da="Opdag mere fra Lamfuz">Discover more from Lamfuz</a></p>
                 <div class="footer-social">
-                    <h3 class="footer-title small">Social</h3>
+                    <h3 class="footer-title small" data-en="Social" data-da="Sociale medier">Social</h3>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/Lamfuz" target="_blank" rel="noopener noreferrer" aria-label="Lamfuz on Facebook">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -464,14 +484,14 @@
             </div>
 
             <div class="footer-col">
-                <h3 class="footer-title">Contact</h3>
+                <h3 class="footer-title" data-en="Contact" data-da="Kontakt">Contact</h3>
                 <p><a href="tel:70605657">70 60 56 57</a></p>
                 <p><a href="mailto:info@lamfuz.com">info@lamfuz.com</a></p>
-                <p>Turesensgade 6, 1368,<br>Copenhagen K, Denmark</p>
+                <p data-en="Turesensgade 6, 1368,<br>Copenhagen K, Denmark" data-da="Turesensgade 6, 1368,<br>København K, Danmark">Turesensgade 6, 1368,<br>Copenhagen K, Denmark</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
+            <p data-en="&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved." data-da="&copy; 2025 Lamfuz Nepali Cuisine. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
         </div>
     </footer>
 

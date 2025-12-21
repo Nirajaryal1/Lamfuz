@@ -98,6 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Video autoplay
     const video = document.getElementById('heroVideo');
+    if (video) {
+        video.play().catch(() => {
+            // Autoplay might be blocked
+        });
+    }
     
     if (video) {
         video.play().catch(error => {
@@ -197,7 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
         translatableElements.forEach(el => {
             const translation = el.getAttribute(`data-${lang}`);
             if (translation) {
-                el.textContent = translation;
+                // Use innerHTML if the translation contains HTML tags, otherwise textContent
+                if (translation.includes('<') && translation.includes('>')) {
+                    el.innerHTML = translation;
+                } else {
+                    el.textContent = translation;
+                }
             }
         });
 
@@ -291,4 +301,70 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ============ GALLERY SLIDER ============
+    const sliderTrack = document.querySelector('.slider-track');
+    const sliderItems = document.querySelectorAll('.slider-item');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    if (sliderTrack && sliderItems.length > 0) {
+        // Create dots
+        sliderItems.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => {
+                sliderTrack.scrollTo({
+                    left: sliderTrack.offsetWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        // Update dots on scroll
+        sliderTrack.addEventListener('scroll', () => {
+            const index = Math.round(sliderTrack.scrollLeft / sliderTrack.offsetWidth);
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+
+        // Next/Prev buttons
+        nextBtn?.addEventListener('click', () => {
+            const nextScroll = sliderTrack.scrollLeft + sliderTrack.offsetWidth;
+            if (nextScroll >= sliderTrack.scrollWidth - 10) { // Small buffer for rounding
+                sliderTrack.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                sliderTrack.scrollBy({ left: sliderTrack.offsetWidth, behavior: 'smooth' });
+            }
+        });
+
+        prevBtn?.addEventListener('click', () => {
+            const prevScroll = sliderTrack.scrollLeft - sliderTrack.offsetWidth;
+            if (prevScroll < -10) {
+                sliderTrack.scrollTo({ left: sliderTrack.scrollWidth, behavior: 'smooth' });
+            } else {
+                sliderTrack.scrollBy({ left: -sliderTrack.offsetWidth, behavior: 'smooth' });
+            }
+        });
+
+        // Auto-play
+        let autoPlayInterval = setInterval(() => {
+            nextBtn?.click();
+        }, 5000);
+
+        // Pause auto-play on interaction
+        sliderTrack.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        sliderTrack.addEventListener('touchstart', () => clearInterval(autoPlayInterval));
+        sliderTrack.addEventListener('mouseleave', () => {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                nextBtn?.click();
+            }, 5000);
+        });
+    }
 });
