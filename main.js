@@ -53,15 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Smart header visibility - hide when scrolling down (after hero), show when scrolling up
-        if (scrollDirection === 'down' && scrollTop > 200) {
-            // Scrolling DOWN - hide nav
-            header.classList.add('scroll-hide');
-            header.classList.remove('scroll-show');
-            clearTimeout(hideTimeout);
-        } else {
-            // Scrolling UP or at top - show nav with smooth animation
-            header.classList.remove('scroll-hide');
-            header.classList.add('scroll-show');
+        if (header) {
+            if (scrollDirection === 'down' && scrollTop > 200) {
+                // Scrolling DOWN - hide nav
+                header.classList.add('scroll-hide');
+                header.classList.remove('scroll-show');
+                clearTimeout(hideTimeout);
+            } else {
+                // Scrolling UP or at top - show nav with smooth animation
+                header.classList.remove('scroll-hide');
+                header.classList.add('scroll-show');
+            }
         }
 
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -191,25 +193,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateLanguage = (lang) => {
         // Update active state in desktop UI
-        langLinks.forEach(l => l.classList.remove('active'));
-        document.querySelector(`.lang-link[data-lang="${lang}"]`)?.classList.add('active');
+        if (langLinks.length > 0) {
+            langLinks.forEach(l => l.classList.remove('active'));
+            document.querySelector(`.lang-link[data-lang="${lang}"]`)?.classList.add('active');
+        }
 
         // Update active state in mobile UI
-        mobileLangLinks.forEach(l => l.classList.remove('active'));
-        document.querySelector(`.mobile-lang-link[data-lang="${lang}"]`)?.classList.add('active');
+        if (mobileLangLinks.length > 0) {
+            mobileLangLinks.forEach(l => l.classList.remove('active'));
+            document.querySelector(`.mobile-lang-link[data-lang="${lang}"]`)?.classList.add('active');
+        }
 
         // Update text content for elements with data-en/data-da
-        translatableElements.forEach(el => {
-            const translation = el.getAttribute(`data-${lang}`);
-            if (translation) {
-                // Use innerHTML if the translation contains HTML tags, otherwise textContent
-                if (translation.includes('<') && translation.includes('>')) {
-                    el.innerHTML = translation;
-                } else {
-                    el.textContent = translation;
+        if (translatableElements.length > 0) {
+            translatableElements.forEach(el => {
+                const translation = el.getAttribute(`data-${lang}`);
+                if (translation) {
+                    // Use innerHTML if the translation contains HTML tags, otherwise textContent
+                    if (translation.includes('<') && translation.includes('>')) {
+                        el.innerHTML = translation;
+                    } else {
+                        el.textContent = translation;
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // Update input placeholders
         document.querySelectorAll('[data-placeholder-en]').forEach(el => {
@@ -230,21 +238,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    langLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = link.getAttribute('data-lang');
-            updateLanguage(lang);
+    if (langLinks.length > 0) {
+        langLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                updateLanguage(lang);
+            });
         });
-    });
+    }
 
-    mobileLangLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = link.getAttribute('data-lang');
-            updateLanguage(lang);
+    if (mobileLangLinks.length > 0) {
+        mobileLangLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                updateLanguage(lang);
+            });
         });
-    });
+    }
 
     // Menu Accordion Logic
     const accordionHeaders = document.querySelectorAll('.accordion-header');
