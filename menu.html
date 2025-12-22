@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Favouritetable Booking Widget -->
+    <script type="text/javascript" language="javascript" src="https://booking.favouritetable.com/widget/ft_bookingwidgetv1.js"></script>
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -127,7 +130,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 4rem;
         }
         .menu-cat-block {
@@ -383,6 +386,23 @@
                     <span class="dish-price">159 kr.</span>
                 </div>
                 <span class="dish-subtext">Pre-order, min. 2 people</span>
+                <div class="offer-bookings" style="margin-top: 1rem; font-size: 0.9rem;">
+                    <p style="margin-bottom: 0.5rem; font-weight: 600;" data-en="Book Special Offer:" data-da="Bestil specialtilbud:">Book Special Offer:</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4803'); return false;" style="color: #d64545; text-decoration: underline;" data-en="Chicken Dal Bhat Platter" data-da="Kylling Dal Bhat Platter">Chicken Dal Bhat Platter</a>
+                            <div id='ft_offerbookingwidget2125_4803' sitecode='2125' c='live' offer='4803'></div>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4804'); return false;" style="color: #d64545; text-decoration: underline;" data-en="Lamb Dal Bhat Platter" data-da="Lam Dal Bhat Platter">Lamb Dal Bhat Platter</a>
+                            <div id='ft_offerbookingwidget2125_4804' sitecode='2125' c='live' offer='4804'></div>
+                        </li>
+                        <li>
+                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4729'); return false;" style="color: #d64545; text-decoration: underline;" data-en="Vegan Dal Bhat Platter" data-da="Vegansk Dal Bhat Platter">Vegan Dal Bhat Platter</a>
+                            <div id='ft_offerbookingwidget2125_4729' sitecode='2125' c='live' offer='4729'></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Children's Menu -->
@@ -471,9 +491,12 @@
         </div>
         <div class="footer-bottom">
             <p data-en="&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved." data-da="&copy; 2025 Lamfuz Nepali Cuisine. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;"><a href="https://booking.favouritetable.com/guest/validate?cc=607" target="_blank" style="color: inherit; text-decoration: underline; font-size: 0.8rem;" data-en="Request Personal Data (GDPR)" data-da="Anmod om persondata (GDPR)">Request Personal Data (GDPR)</a></p>
         </div>
     </footer>
 
     <script type="module" src="./main.js"></script>
+    <!-- General Booking Widget Container -->
+    <div id='ft_bookingwidget2125' sitecode='2125'></div>
 </body>
 </html>

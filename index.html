@@ -49,6 +49,9 @@
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Favouritetable Booking Widget -->
+    <script type="text/javascript" language="javascript" src="https://booking.favouritetable.com/widget/ft_bookingwidgetv1.js"></script>
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -167,60 +170,8 @@
             <div class="reservation-container">
                 <!-- Left Column: Reservation Widget -->
                 <div class="reservation-widget-col">
-                    <div class="white-card">
-                        <div class="red-panel">
-                            <div class="calendar-header">
-                                <span class="arrow">&lt;</span>
-                                <span class="month-year">DECEMBER 2025</span>
-                                <span class="arrow">&gt;</span>
-                            </div>
-                            <div class="calendar-grid">
-                                <div class="day-name">Mon</div>
-                                <div class="day-name">Tue</div>
-                                <div class="day-name">Wed</div>
-                                <div class="day-name">Thu</div>
-                                <div class="day-name">Fri</div>
-                                <div class="day-name">Sat</div>
-                                <div class="day-name">Sun</div>
-                                
-                                <!-- Calendar Days (Simplified for visual accuracy) -->
-                                <div class="day inactive">24</div>
-                                <div class="day inactive">25</div>
-                                <div class="day inactive">26</div>
-                                <div class="day inactive">27</div>
-                                <div class="day inactive">28</div>
-                                <div class="day inactive">29</div>
-                                <div class="day inactive">30</div>
-                                
-                                <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
-                                <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
-                                <div class="day">15</div><div class="day">16</div><div class="day">17</div>
-                                <div class="day selected-red">18</div>
-                                <div class="day selected-blue">19</div>
-                                <div class="day selected-blue">20</div>
-                                <div class="day">21</div>
-                                <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
-                                <div class="day">29</div><div class="day">30</div><div class="day">31</div>
-                            </div>
-
-                            <div class="reservation-form">
-                                <div class="form-group">
-                                    <label data-en="No of guests:" data-da="Antal gæster:">No of guests:</label>
-                                    <select class="guest-select">
-                                        <option data-en="2 guests" data-da="2 gæster">2 guests</option>
-                                        <option data-en="3 guests" data-da="3 gæster">3 guests</option>
-                                        <option data-en="4 guests" data-da="4 gæster">4 guests</option>
-                                    </select>
-                                </div>
-                                <button class="btn-continue" data-en="CONTINUE" data-da="FORTSÆT">CONTINUE</button>
-                            </div>
-
-                            <div class="reservation-footer">
-                                <p data-en="For parties over 8, please email us at" data-da="For større selskaber, kontakt os venligst på"><br>
-                                <a href="mailto:booking@lamfuz.dk">booking@lamfuz.dk</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    <div id='ft_bookingwidget2125' sitecode='2125' ></div> 
+                    <iframe src="https://booking.favouritetable.com/?SiteCode=2125" class="booking-iframe" frameborder="0"></iframe>
                 </div>
 
                 <!-- Right Column: Text Content -->
@@ -233,6 +184,10 @@
                         brings the warm flavors of Nepal to the heart of
                         Copenhagen.
                     </p>
+                    <div class="reservation-extra-links" style="margin-top: 2rem;">
+                        <a href="#" onclick="ft_cancelbookingwidget('ft_cancelbookingwidget2125'); return false;" style="color: #d64545; text-decoration: underline; font-size: 0.9rem;" data-en="Cancel a booking" data-da="Annuller en reservation">Cancel a booking</a>
+                        <div id='ft_cancelbookingwidget2125' cc='607' ></div> 
+                    </div>
                 </div>
             </div>
         </section>
@@ -619,6 +574,7 @@
         </div>
         <div class="footer-bottom">
             <p data-en="&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved." data-da="&copy; 2025 Lamfuz Nepali Cuisine. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;"><a href="https://booking.favouritetable.com/guest/validate?cc=607" target="_blank" style="color: inherit; text-decoration: underline; font-size: 0.8rem;" data-en="Request Personal Data (GDPR)" data-da="Anmod om persondata (GDPR)">Request Personal Data (GDPR)</a></p>
         </div>
     </footer>
 
