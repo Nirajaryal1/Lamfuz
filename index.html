@@ -49,8 +49,9 @@
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Favouritetable Booking Widget -->
-    <script type="text/javascript" language="javascript" src="https://booking.favouritetable.com/widget/ft_bookingwidgetv1.js"></script>
+    <!-- Favouritetable Booking Widget (deferred) -->
+    <!-- Deferred: injected on user intent or when booking section is visible -->
+    <!-- <script type="text/javascript" language="javascript" src="https://booking.favouritetable.com/widget/ft_bookingwidgetv1.js"></script> -->
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -170,8 +171,14 @@
             <div class="reservation-container">
                 <!-- Left Column: Reservation Widget -->
                 <div class="reservation-widget-col">
-                    <div id='ft_bookingwidget2125' sitecode='2125' ></div> 
-                    <iframe src="https://booking.favouritetable.com/?SiteCode=2125" class="booking-iframe" frameborder="0"></iframe>
+                    <div id='ft_bookingwidget2125' sitecode='2125' ></div>
+                    <iframe
+                        data-src="https://booking.favouritetable.com/?SiteCode=2125"
+                        class="booking-iframe lazy-booking-iframe"
+                        frameborder="0"
+                        loading="lazy"
+                        title="Book a table"
+                    ></iframe>
                 </div>
 
                 <!-- Right Column: Text Content -->

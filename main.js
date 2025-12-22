@@ -380,3 +380,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Lazy-load booking iframe + widget
+(function(){
+    const IFRAME_SRC = 'https://booking.favouritetable.com/?SiteCode=2125';
+    const WIDGET_SRC = 'https://booking.favouritetable.com/widget/ft_bookingwidgetv1.js';
+    const bookingEl = document.getElementById('booking');
+    const iframe = bookingEl?.querySelector('.lazy-booking-iframe');
+
+    function injectWidgetScript(){
+        if (document.querySelector('script[data-ft-widget]')) return;
+        const s = document.createElement('script');
+        s.src = WIDGET_SRC;
+        s.async = true;
+        s.setAttribute('data-ft-widget','1');
+        document.body.appendChild(s);
+    }
+
+    function loadBooking(){
+        if (iframe && !iframe.src) iframe.src = iframe.dataset.src || IFRAME_SRC;
+        injectWidgetScript();
+        if (observer) observer.disconnect();
+    }
+
+    const observer = bookingEl ? new IntersectionObserver(entries=>{
+        if (entries.some(e=>e.isIntersecting)) loadBooking();
+    }, {rootMargin: '600px'}) : null;
+
+    if (observer) observer.observe(bookingEl);
+
+    // Ensure immediate load on user intent (click any Book link)
+    document.querySelectorAll('a[href$="#booking"], a[href*="#booking"]').forEach(a=>{
+        a.addEventListener('click', () => loadBooking(), {passive:true, once:true});
+    });
+
+    // Optional: prefetch widget on hover over booking CTAs
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('.btn-book, .btn-primary, .reserve-btn')) {
+            if (!document.querySelector('link[rel="preload"][data-ft-prefetch]')) {
+                const l = document.createElement('link');
+                l.rel = 'preload';
+                l.as = 'script';
+                l.href = WIDGET_SRC;
+                l.setAttribute('data-ft-prefetch','1');
+                document.head.appendChild(l);
+            }
+        }
+    }, {passive:true});
+})();
