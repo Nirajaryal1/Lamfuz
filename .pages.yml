@@ -8,25 +8,13 @@ content:
     type: collection
     path: /
     extension: html
-    format: raw
-    fields:
-      - name: body
-        label: Page Content
-        type: code
-        config:
-          language: html
+    format: code
 
   - name: styles
     label: Styles
     type: file
     path: style.css
-    format: raw
-    fields:
-      - name: body
-        label: CSS Code
-        type: code
-        config:
-          language: css
+    format: code
 
   - name: settings
     label: Settings
@@ -68,5 +56,5 @@ content:
           - name: footerHtml
             label: Category Footer (HTML)
             type: code
-            config:
-              language: html
+            options:
+              format: html
