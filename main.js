@@ -258,11 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Menu Accordion Logic
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
+    // Menu Accordion Logic (using event delegation for dynamic content)
+    document.addEventListener('click', (e) => {
+        const header = e.target.closest('.accordion-header');
+        if (header) {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
             
@@ -275,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isActive) {
                 item.classList.add('active');
             }
-        });
+        }
     });
 
     // Intersection Observer for Fade-in Animations

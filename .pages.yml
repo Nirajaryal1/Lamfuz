@@ -1,0 +1,72 @@
+media:
+  input: public/assets/images
+  output: /assets/images
+
+content:
+  - name: pages
+    label: Pages
+    type: collection
+    path: /
+    extension: html
+    format: raw
+    fields:
+      - name: body
+        label: Page Content
+        type: code
+        config:
+          language: html
+
+  - name: styles
+    label: Styles
+    type: file
+    path: style.css
+    format: raw
+    fields:
+      - name: body
+        label: CSS Code
+        type: code
+        config:
+          language: css
+
+  - name: settings
+    label: Settings
+    type: file
+    path: package.json
+    fields:
+      - name: name
+        label: Project Name
+        type: string
+      - name: version
+        label: Version
+        type: string
+
+  - name: menu
+    label: Menu
+    type: file
+    path: data/menu.json
+    fields:
+      - name: categories
+        label: Menu Categories
+        type: list
+        fields:
+          - name: name
+            label: Category Name
+            type: string
+          - name: items
+            label: Dishes
+            type: list
+            fields:
+              - name: name
+                label: Dish Name
+                type: string
+              - name: price
+                label: Price
+                type: string
+              - name: description
+                label: Description
+                type: string
+          - name: footerHtml
+            label: Category Footer (HTML)
+            type: code
+            config:
+              language: html
