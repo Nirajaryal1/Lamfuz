@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favouritetable Booking Widget (deferred) -->
     <!-- Deferred: injected on user intent or when booking section is visible -->
@@ -73,8 +73,8 @@
     </script>
     <style>
         .about-page {
-            background-color: #FBF3E6;
-            color: #d64545;
+            background-color: #fff5e1;
+            color: #cc5500;
             overflow-x: hidden;
         }
         
@@ -130,10 +130,10 @@
         }
 
         .about-page-headline {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Amagro', serif;
             font-size: clamp(2rem, 5vw, 3rem);
             text-align: center;
-            color: #d64545;
+            color: #cc5500;
             text-transform: uppercase;
             letter-spacing: 4px;
             margin-bottom: 4rem;
@@ -150,10 +150,12 @@
         }
 
         .about-intro-text {
+            font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
             font-size: 1.2rem;
             line-height: 1.8;
             margin-bottom: 6rem;
             column-count: 1;
+            color: #cc5500;
         }
         
         @media (min-width: 768px) {
@@ -197,23 +199,26 @@
         }
 
         .about-split-content h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Amagro', serif;
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: #cc5500;
         }
 
         .about-split-content p {
+            font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
             font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 2rem;
             opacity: 0.9;
+            color: #cc5500;
         }
 
         .reserve-btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background-color: #d64545;
+            background-color: #cc5500;
             color: white;
             text-decoration: none;
             font-weight: 600;
@@ -224,7 +229,7 @@
         }
 
         .reserve-btn:hover {
-            background-color: #b33a3a;
+            background-color: #a34303;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(214, 69, 69, 0.2);
         }
@@ -233,7 +238,7 @@
             display: block;
             text-align: center;
             margin: 4rem 0 8rem;
-            color: #d64545;
+            color: #cc5500;
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 1px;
@@ -289,7 +294,7 @@
                     <span class="mobile-lang-divider">/</span>
                     <a href="#" class="mobile-lang-link" data-lang="da">DA</a>
                 </div>
-                <a href="index.html#booking" class="btn-book" data-en="Book" data-da="Bestil">Book</a>
+                <a href="index.html#booking" class="btn-book" data-en="Book a Table" data-da="Bestil et Bord">Book a Table</a>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -303,7 +308,7 @@
         <a href="menu.html" class="mobile-nav-link" data-en="MENU" data-da="MENU">MENU</a>
         <a href="about.html" class="mobile-nav-link" data-en="ABOUT LAMFUZ" data-da="OM LAMFUZ">ABOUT LAMFUZ</a>
         <a href="contact.html" class="mobile-nav-link" data-en="CONTACT" data-da="KONTAKT">CONTACT</a>
-        <a href="index.html#booking" class="mobile-nav-link" data-en="Book" data-da="Bestil">Book</a>
+        <a href="index.html#booking" class="mobile-nav-link" data-en="Book a Table" data-da="Bestil et Bord">Book a Table</a>
     </div>
 
     <section class="about-hero">
@@ -312,13 +317,13 @@
     </section>
 
     <main class="about-content">
-        <h1 class="about-page-headline">The taste of Nepal – in the heart of Copenhagen</h1>
+        <h1 class="about-page-headline" data-en="The taste of Nepal – in the heart of Copenhagen" data-da="Smagen af Nepal – midt i København">The taste of Nepal – in the heart of Copenhagen</h1>
         <img src="./assets/images/Dish-3_16-9_Above_NEW.webp" srcset="./assets/images/Dish-3_16-9_Above_NEW-sm.webp 600w, ./assets/images/Dish-3_16-9_Above_NEW-med.webp 1000w, ./assets/images/Dish-3_16-9_Above_NEW.webp 1600w" sizes="(max-width: 768px) 100vw, 80vw" alt="Nepalese Dish" class="about-intro-img">
         
         <div class="about-intro-text">
-            <p>At Lamfuz, it's about more than food - it's about the experience. We bring the authentic Nepalese flavors to Denmark with love, spices and a deep respect for our food culture. Our dishes are inspired by childhood meals in the rice fields of Nepal, where the scents of garlic, ginger and chili filled the air.</p>
-            <p>Our cuisine is not just about recipes – it’s about craftsmanship, tradition and the hospitality that is the hallmark of Nepal. Each dish is created with precision and respect for the ingredients we work with. From the deep, aromatic spices to the fresh vegetables and slow-cooked sauces, we strive to bring you the same warmth and authenticity that we grew up with.</p>
-            <p>Here in Copenhagen, we share that tradition with you – served with modern finesse, local ingredients and genuine warmth.</p>
+            <p data-en="At Lamfuz, it's about more than food - it's about the experience. We bring the authentic Nepalese flavors to Denmark with love, spices and a deep respect for our food culture. Our dishes are inspired by childhood meals in the rice fields of Nepal, where the scents of garlic, ginger and chili filled the air." data-da="Hos Lamfuz handler det om mere end mad – det handler om oplevelsen. Vi bringer de autentiske nepalesiske smagsoplevelser til Danmark med kærlighed, krydderier og en dyb respekt for vores madkultur. Vores retter er inspireret af barndommens måltider i Nepals rismarker, hvor duften af hvidløg, ingefær og chili fyldte luften.">At Lamfuz, it's about more than food - it's about the experience. We bring the authentic Nepalese flavors to Denmark with love, spices and a deep respect for our food culture. Our dishes are inspired by childhood meals in the rice fields of Nepal, where the scents of garlic, ginger and chili filled the air.</p>
+            <p data-en="Our cuisine is not just about recipes – it’s about craftsmanship, tradition and the hospitality that is the hallmark of Nepal. Each dish is created with precision and respect for the ingredients we work with. From the deep, aromatic spices to the fresh vegetables and slow-cooked sauces, we strive to bring you the same warmth and authenticity that we grew up with." data-da="Vores køkken handler ikke kun om opskrifter – det handler om håndværk, tradition og den gæstfrihed, der er Nepals kendetegn. Hver ret er skabt med præcision og respekt for de ingredienser, vi arbejder med. Fra de dybe, aromatiske krydderier til de friske grøntsager og simrede saucer stræber vi efter at bringe dig den samme varme og autenticitet, som vi selv er vokset op med.">Our cuisine is not just about recipes – it’s about craftsmanship, tradition and the hospitality that is the hallmark of Nepal. Each dish is created with precision and respect for the ingredients we work with. From the deep, aromatic spices to the fresh vegetables and slow-cooked sauces, we strive to bring you the same warmth and authenticity that we grew up with.</p>
+            <p data-en="Here in Copenhagen, we share that tradition with you – served with modern finesse, local ingredients and genuine warmth." data-da="Her i København deler vi den tradition med dig – serveret med moderne finesse, lokale ingredienser og ægte varme.">Here in Copenhagen, we share that tradition with you – served with modern finesse, local ingredients and genuine warmth.</p>
         </div>
 
         <!-- Section 2 -->
@@ -327,9 +332,9 @@
                 <img src="./assets/images/Dish-1_4-5_Side.webp" srcset="./assets/images/Dish-1_4-5_Side-sm.webp 600w, ./assets/images/Dish-1_4-5_Side-med.webp 1000w, ./assets/images/Dish-1_4-5_Side.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Authentic Nepal Taste" class="about-split-img">
             </div>
             <div class="about-split-content">
-                <h2>Experience the authentic taste of Nepal in Lamfuz</h2>
-                <p>Lamfuz means slendrian, but with an interior built by the chef himself from recycled materials and with every detail taken care of, you can clearly feel the love Krishna puts into his restaurant. From the uncompromising choice of specialty items to the homemade and perfectly roasted spice blends, there is no doubt that Krishna's ambition is to place Nepal firmly on the Copenhagen dining scene as a unique experience.</p>
-                <p>On the shelf, Nepalese tea – known for its special softness and umami taste – stands side by side with Danish-produced sodas, and in the virtual room you will find only the best cold-pressed rapeseed oils. The dishes are designed based on Danish seasonal ingredients and shaped with Krishna's sense of Nepal, full of stories. On the plates in Lamfuz you are introduced to a modern story about the Nepalese taste palette in warm and cheerful surroundings.</p>
+                <h2 data-en="Experience the authentic taste of Nepal in Lamfuz" data-da="Oplev den autentiske smag af Nepal hos Lamfuz">Experience the authentic taste of Nepal in Lamfuz</h2>
+                <p data-en="Lamfuz means slendrian, but with an interior built by the chef himself from recycled materials and with every detail taken care of, you can clearly feel the love Krishna puts into his restaurant. From the uncompromising choice of specialty items to the homemade and perfectly roasted spice blends, there is no doubt that Krishna's ambition is to place Nepal firmly on the Copenhagen dining scene as a unique experience." data-da="Lamfuz betyder slendrian, men med et interiør bygget af kokken selv af genbrugsmaterialer og med kærlighed for hver detalje, kan man tydeligt mærke den kærlighed, Krishna lægger i sin restaurant. Fra det kompromisløse valg af specialiteter til de hjemmelavede og perfekt ristede krydderiblandinger er der ingen tvivl om, at Krishnas ambition er at placere Nepal solidt på den københavnske madscene som en unik oplevelse.">Lamfuz means slendrian, but with an interior built by the chef himself from recycled materials and with every detail taken care of, you can clearly feel the love Krishna puts into his restaurant. From the uncompromising choice of specialty items to the homemade and perfectly roasted spice blends, there is no doubt that Krishna's ambition is to place Nepal firmly on the Copenhagen dining scene as a unique experience.</p>
+                <p data-en="On the shelf, Nepalese tea – known for its special softness and umami taste – stands side by side with Danish-produced sodas, and in the virtual room you will find only the best cold-pressed rapeseed oils. The dishes are designed based on Danish seasonal ingredients and shaped with Krishna's sense of Nepal, full of stories. On the plates in Lamfuz you are introduced to a modern story about the Nepalese taste palette in warm and cheerful surroundings." data-da="På hylden står nepalesisk te – kendt for sin særlige blødhed og umami-smag – side om side med danskproducerede sodavand, og i det virtuelle rum finder du kun de bedste koldpressede rapsolier. Retterne er designet ud fra danske sæsonråvarer og formet med Krishnas sans for Nepal, fuld af historier. På tallerkenerne hos Lamfuz bliver du introduceret til en moderne fortælling om den nepalesiske smagspalet i varme og glade omgivelser.">On the shelf, Nepalese tea – known for its special softness and umami taste – stands side by side with Danish-produced sodas, and in the virtual room you will find only the best cold-pressed rapeseed oils. The dishes are designed based on Danish seasonal ingredients and shaped with Krishna's sense of Nepal, full of stories. On the plates in Lamfuz you are introduced to a modern story about the Nepalese taste palette in warm and cheerful surroundings.</p>
                 <a href="index.html#booking" class="reserve-btn" data-en="Reserve a table" data-da="Bestil et bord">Reserve a table</a>
             </div>
         </div>
@@ -340,13 +345,13 @@
                 <img src="./assets/images/Dish-3,2_4-5_Above.webp" srcset="./assets/images/Dish-3,2_4-5_Above-sm.webp 600w, ./assets/images/Dish-3,2_4-5_Above-med.webp 1000w, ./assets/images/Dish-3,2_4-5_Above.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="About Lamfuz" class="about-split-img zoomed">
             </div>
             <div class="about-split-content">
-                <h2>About Lamfuz</h2>
-                <p>Lamfuz would like to introduce you to the fireworks of flavors that the Nepalese cuisine of our childhood offers. We offer dine-in and takeout, inviting you into our universe full of tasty and healthy relaxation!</p>
-                <p>Cumin, turmeric, chili, coriander, garlic and ginger bring the food to life and give your taste buds a rollercoaster ride – and it’s healthy too! Lamfuz is for those of you who crave exotic food and new flavors with vegetarian and vegan options. And don’t worry if you’re a dedicated carnivore – we also have menus with lamb, chicken and seasonal fish.</p>
+                <h2 data-en="About Lamfuz" data-da="Om Lamfuz">About Lamfuz</h2>
+                <p data-en="Lamfuz would like to introduce you to the fireworks of flavors that the Nepalese cuisine of our childhood offers. We offer dine-in and takeout, inviting you into our universe full of tasty and healthy relaxation!" data-da="Lamfuz vil gerne introducere dig for det festfyrværkeri af smagsoplevelser, som barndommens nepalesiske køkken byder på. Vi tilbyder både spisning i restauranten og takeaway, og inviterer dig ind i vores univers fuld af velsmagende og sund afslapning!">Lamfuz would like to introduce you to the fireworks of flavors that the Nepalese cuisine of our childhood offers. We offer dine-in and takeout, inviting you into our universe full of tasty and healthy relaxation!</p>
+                <p data-en="Cumin, turmeric, chili, coriander, garlic and ginger bring the food to life and give your taste buds a rollercoaster ride – and it’s healthy too! Lamfuz is for those of you who crave exotic food and new flavors with vegetarian and vegan options. And don’t worry if you’re a dedicated carnivore – we also have menus with lamb, chicken and seasonal fish." data-da="Spidskommen, gurkemeje, chili, koriander, hvidløg og ingefær vækker maden til live og giver dine smagsløg en rutsjebanetur – og så er det endda sundt! Lamfuz er for dig, der har lyst til eksotisk mad og nye smagsoplevelser med både vegetariske og veganske muligheder. Og bare rolig, hvis du er en dedikeret kødelsker – vi har også menuer med både lam, kylling og sæsonens fisk.">Cumin, turmeric, chili, coriander, garlic and ginger bring the food to life and give your taste buds a rollercoaster ride – and it’s healthy too! Lamfuz is for those of you who crave exotic food and new flavors with vegetarian and vegan options. And don’t worry if you’re a dedicated carnivore – we also have menus with lamb, chicken and seasonal fish.</p>
             </div>
         </div>
 
-        <a href="index.html" class="back-home">← BACK TO HOME</a>
+        <a href="index.html" class="back-home" data-en="← BACK TO HOME" data-da="← TILBAGE TIL FORSIDE">← BACK TO HOME</a>
     </main>
 
     <footer class="main-footer">
@@ -381,7 +386,7 @@
                             <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                         <a href="https://www.tripadvisor.com/Restaurant_Review-g189541-d27516241-Reviews-Lamfuz-Copenhagen_Zealand.html" target="_blank" rel="noopener noreferrer" aria-label="Lamfuz on TripAdvisor">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21c-4.966 0-9-4.034-9-9s4.034-9 9-9 9 4.034 9 9-4.034 9-9 9zm3.5-9c1.381 0 2.5-1.119 2.5-2.5S16.881 7 15.5 7 13 8.119 13 9.5s1.119 2.5 2.5 2.5zm-7 0c1.381 0 2.5-1.119 2.5-2.5S9.881 7 8.5 7 6 8.119 6 9.5 7.119 12 8.5 12zm3.5 3.5c-2.49 0-4.75 1.049-6.364 2.734.605.768 1.352 1.406 2.207 1.853C9.15 19.395 10.5 19 12 19s2.85.395 4.157 1.087c.855-.447 1.602-1.085 2.207-1.853C16.25 16.549 14.49 15.5 12 15.5z"/></svg>
+                            <svg viewBox="0 0 500 500" fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M101.4 1H398.6C454.1 1 499 45.9 499 101.4V398.6C499 454.1 454.1 499 398.6 499H101.4C45.9 499 1 454.1 1 398.6V101.4C1 45.9 45.9 1 101.4 1ZM145.4 153.3C120.3 153.3 100 173.6 100 198.7C100 223.8 120.3 244.1 145.4 244.1C170.5 244.1 190.8 223.8 190.8 198.7C190.8 173.6 170.5 153.3 145.4 153.3ZM250 250C225.1 250 204.8 270.3 204.8 295.4C204.8 320.5 225.1 340.8 250 340.8C274.9 340.8 295.2 320.5 295.2 295.4C295.2 270.3 274.9 250 250 250ZM354.6 153.3C329.5 153.3 309.2 173.6 309.2 198.7C309.2 223.8 329.5 244.1 354.6 244.1C379.7 244.1 400 223.8 400 198.7C400 173.6 379.7 153.3 354.6 153.3ZM145.4 213.9C137 213.9 130.2 207.1 130.2 198.7C130.2 190.3 137 183.5 145.4 183.5C153.8 183.5 160.6 190.3 160.6 198.7C160.6 207.1 153.8 213.9 145.4 213.9ZM354.6 213.9C346.2 213.9 339.4 207.1 339.4 198.7C339.4 190.3 346.2 183.5 354.6 183.5C363 183.5 369.8 190.3 369.8 198.7C369.8 207.1 363 213.9 354.6 213.9ZM250 216.4C216.5 216.4 189.6 230.1 189.6 247.1V262.3H310.4V247.1C310.4 230.1 283.5 216.4 250 216.4Z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -395,6 +400,12 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <div class="find-smiley-section" style="margin-bottom: 2rem; display: flex; justify-content: center;">
+                <a href="https://www.findsmiley.dk/Sider/Search.aspx?k=lamfuz" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 500; font-family: var(--font-main);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #cc5500;"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    <span>Find Smiley</span>
+                </a>
+            </div>
             <p data-en="&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved." data-da="&copy; 2025 Lamfuz Nepali Cuisine. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
             <p style="margin-top: 0.5rem;"><a href="https://booking.favouritetable.com/guest/validate?cc=607" target="_blank" style="color: inherit; text-decoration: underline; font-size: 0.8rem;" data-en="Request Personal Data (GDPR)" data-da="Anmod om persondata (GDPR)">Request Personal Data (GDPR)</a></p>
         </div>

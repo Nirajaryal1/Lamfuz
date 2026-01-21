@@ -47,7 +47,7 @@
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favouritetable Booking Widget (deferred) -->
     <!-- Deferred: injected on user intent or when booking section is visible -->
@@ -121,7 +121,7 @@
                     <span class="mobile-lang-divider">/</span>
                     <a href="#" class="mobile-lang-link" data-lang="da">DA</a>
                 </div>
-                <a href="#booking" class="btn-book" data-en="Book" data-da="Bestil">Book</a>
+                <a href="#booking" class="btn-book" data-en="Book a Table" data-da="Bestil et Bord">Book a Table</a>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -135,7 +135,7 @@
         <a href="menu.html" class="mobile-nav-link" data-en="MENU" data-da="MENU">MENU</a>
         <a href="about.html" class="mobile-nav-link" data-en="ABOUT LAMFUZ" data-da="OM LAMFUZ">ABOUT LAMFUZ</a>
         <a href="contact.html" class="mobile-nav-link" data-en="CONTACT" data-da="KONTAKT">CONTACT</a>
-        <a href="#booking" class="mobile-nav-link" data-en="Book" data-da="Bestil">Book</a>
+        <a href="#booking" class="mobile-nav-link" data-en="Book a Table" data-da="Bestil et Bord">Book a Table</a>
     </div>
 
     <main>
@@ -169,16 +169,18 @@
 
         <section id="booking" class="reservation-section">
             <div class="reservation-container">
-                <!-- Left Column: Reservation Widget -->
+                <!-- Direct Booking Widget -->
                 <div class="reservation-widget-col">
-                    <div id='ft_bookingwidget2125' sitecode='2125' ></div>
-                    <iframe
-                        data-src="https://booking.favouritetable.com/?SiteCode=2125"
-                        class="booking-iframe lazy-booking-iframe"
-                        frameborder="0"
-                        loading="lazy"
-                        title="Book a table"
-                    ></iframe>
+                    <div class="booking-iframe-container">
+                        <iframe 
+                            src="https://booking.favouritetable.com/?SiteCode=2125" 
+                            width="100%" 
+                            height="600" 
+                            frameborder="0" 
+                            style="border:none; border-radius: 16px; background: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1);"
+                            title="Book a table at Lamfuz">
+                        </iframe>
+                    </div>
                 </div>
 
                 <!-- Right Column: Text Content -->
@@ -191,10 +193,6 @@
                         brings the warm flavors of Nepal to the heart of
                         Copenhagen.
                     </p>
-                    <div class="reservation-extra-links" style="margin-top: 2rem;">
-                        <a href="#" onclick="ft_cancelbookingwidget('ft_cancelbookingwidget2125'); return false;" style="color: #d64545; text-decoration: underline; font-size: 0.9rem;" data-en="Cancel a booking" data-da="Annuller en reservation">Cancel a booking</a>
-                        <div id='ft_cancelbookingwidget2125' cc='607' ></div> 
-                    </div>
                 </div>
             </div>
         </section>
@@ -212,64 +210,31 @@
                     </p>
                 </div>
                 <div class="gallery-slider-col">
-                    <div class="slider-container">
-                        <div class="slider-track">
-                            <div class="slider-item">
-                                <img 
-                                    src="./assets/images/DhalBhatPlatter_1-1_Above (1).webp" 
-                                    alt="Authentic Nepali Dhal Bhat Platter" 
-                                    loading="lazy"
-                                >
-                                <div class="slider-caption">Dhal Bhat Platter</div>
+                    <div class="gallery-slider">
+                        <div class="slider-track" id="galleryTrack">
+                            <div class="slider-item vertical">
+                                <img src="./assets/images/ChickenChoila_1-1_Above (1).webp" alt="Chicken Choila" loading="lazy">
                             </div>
-                            <div class="slider-item">
-                                <img 
-                                    src="./assets/images/ChickenChoila_1-1_Above (1).webp" 
-                                    alt="Spicy Chicken Choila" 
-                                    loading="lazy"
-                                >
-                                <div class="slider-caption">Chicken Choila</div>
+                            <div class="slider-item vertical">
+                                <img src="./assets/images/ChowMein_1-1_Above (1).webp" alt="Chow Mein" loading="lazy">
                             </div>
-                            <div class="slider-item">
-                                <img 
-                                    src="./assets/images/ChowMein_1-1_Above (1).webp" 
-                                    alt="Nepali Style Chow Mein" 
-                                    loading="lazy"
-                                >
-                                <div class="slider-caption">Nepali Chow Mein</div>
+                            <div class="slider-item vertical">
+                                <img src="./assets/images/DhalBhatPlatter_1-1_Above (1).webp" alt="Dhal Bhat Platter" loading="lazy">
                             </div>
-                            <div class="slider-item">
-                                <img 
-                                    src="./assets/images/JholMoMo_1-1_Above (1).webp" 
-                                    alt="Authentic Jhol Momo" 
-                                    loading="lazy"
-                                >
-                                <div class="slider-caption">Jhol Momo</div>
+                            <div class="slider-item vertical">
+                                <img src="./assets/images/FriedRice_1-1_Above (1).webp" alt="Fried Rice" loading="lazy">
                             </div>
-                            <div class="slider-item">
-                                <img 
-                                    src="./assets/images/FriedRice_1-1_Above (1).webp" 
-                                    alt="Nepali Fried Rice" 
-                                    loading="lazy"
-                                >
-                                <div class="slider-caption">Fried Rice</div>
+                            <div class="slider-item vertical">
+                                <img src="./assets/images/JholMoMo_1-1_Above (1).webp" alt="Jhol Momo" loading="lazy">
                             </div>
-                            <div class="slider-item">
-                                <img 
-                                    src="./assets/images/SaladBowl_1-1_Above.webp" 
-                                    srcset="./assets/images/SaladBowl_1-1_Above-sm.webp 400w, ./assets/images/SaladBowl_1-1_Above-med.webp 800w, ./assets/images/SaladBowl_1-1_Above.webp 1200w"
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                    alt="Fresh Nepali Salad Bowl" 
-                                    loading="lazy"
-                                >
-                                <div class="slider-caption">Fresh Salad Bowl</div>
+                            <div class="slider-item vertical">
+                                <img src="./assets/images/SaladBowl_1-1_Above.webp" alt="Salad Bowl" loading="lazy">
                             </div>
                         </div>
-                        <div class="slider-nav">
-                            <button class="slider-prev" aria-label="Previous slide">&larr;</button>
-                            <button class="slider-next" aria-label="Next slide">&rarr;</button>
+                        <div class="gallery-nav">
+                            <button class="nav-btn prev" id="galleryPrev" aria-label="Previous"><span>❮</span></button>
+                            <button class="nav-btn next" id="galleryNext" aria-label="Next"><span>❯</span></button>
                         </div>
-                        <div class="slider-dots"></div>
                     </div>
                 </div>
             </div>
@@ -286,22 +251,22 @@
                     <!-- Appetizers -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span>Appetizers</span>
+                            <span data-en="Appetizers" data-da="Appetizers">Appetizers</span>
                             <span class="icon">+</span>
                         </button>
                         <div class="accordion-content">
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Papad</span>
-                                    <span class="item-sub">Thinly toasted crispy made from lentil flour</span>
+                                    <span class="item-name" data-en="Papad" data-da="Papad">Papad</span>
+                                    <span class="item-sub" data-en="Thinly toasted crispy made from lentil flour" data-da="Tyndt ristet sprødt brød af linsemel">Thinly toasted crispy made from lentil flour</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 20.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Cucumber Bites</span>
-                                    <span class="item-sub">Freshly seasoned with sesame, coriander and lemon juice</span>
+                                    <span class="item-name" data-en="Cucumber Bites" data-da="Agurke bidder">Cucumber Bites</span>
+                                    <span class="item-sub" data-en="Freshly seasoned with sesame, coriander and lemon juice" data-da="Frisk krydret med sesam, koriander og citronsat">Freshly seasoned with sesame, coriander and lemon juice</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 59.</span>
@@ -312,46 +277,46 @@
                     <!-- Starters -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span>Starters</span>
+                            <span data-en="Starters" data-da="Forretter">Starters</span>
                             <span class="icon">+</span>
                         </button>
                         <div class="accordion-content">
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Salad bowl</span>
-                                    <span class="item-sub">Crispy vegetable salad with sesame, green chili, coriander and turmeric oil (+ chicken DKK 39 / shrimp DKK 59 / tofu DKK 39)</span>
+                                    <span class="item-name" data-en="Salad bowl" data-da="Salatskål">Salad bowl</span>
+                                    <span class="item-sub" data-en="Crispy vegetable salad with sesame, green chili, coriander and turmeric oil (+ chicken DKK 39 / shrimp DKK 59 / tofu DKK 39)" data-da="Sprød grøntsalat med sesam, grøn chili, koriander og gurkemejeolie (+ kylling DKK 39 / rejer DKK 59 / tofu DKK 39)">Crispy vegetable salad with sesame, green chili, coriander and turmeric oil (+ chicken DKK 39 / shrimp DKK 59 / tofu DKK 39)</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 59.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">MoMo (5 pcs)</span>
-                                    <span class="item-sub">Chicken or Vegan. Steamed Nepalese dumplings with sesame-tomato chutney</span>
+                                    <span class="item-name" data-en="MoMo (5 pcs)" data-da="MoMo (5 stk)">MoMo (5 pcs)</span>
+                                    <span class="item-sub" data-en="Chicken or Vegan. Steamed Nepalese dumplings with sesame-tomato chutney" data-da="Kylling eller Vegan. Dampede nepalesiske dumplings med sesam-tomat chutney">Chicken or Vegan. Steamed Nepalese dumplings with sesame-tomato chutney</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 75.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Chicken Choila</span>
-                                    <span class="item-sub">Grilled chicken with onion, garlic, chili, coriander and Nepalese spices</span>
+                                    <span class="item-name" data-en="Chicken Choila" data-da="Kylling Choila">Chicken Choila</span>
+                                    <span class="item-sub" data-en="Grilled chicken with onion, garlic, chili, coriander and Nepalese spices" data-da="Grillet kylling med løg, hvidløg, chili, koriander og nepalesiske krydderier">Grilled chicken with onion, garlic, chili, coriander and Nepalese spices</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 79.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Spicy Shrimp</span>
-                                    <span class="item-sub">Pan-fried shrimp with onion, garlic, chili, coriander and Nepalese spices</span>
+                                    <span class="item-name" data-en="Spicy Shrimp" data-da="Krydrede rejer">Spicy Shrimp</span>
+                                    <span class="item-sub" data-en="Pan-fried shrimp with onion, garlic, chili, coriander and Nepalese spices" data-da="Stegede rejer med løg, hvidløg, chili, koriander og nepalesiske krydderier">Pan-fried shrimp with onion, garlic, chili, coriander and Nepalese spices</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 89.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Mushroom Choila</span>
-                                    <span class="item-sub">Fried mushrooms with onion, garlic, chili, coriander and Nepalese spices</span>
+                                    <span class="item-name" data-en="Mushroom Choila" data-da="Svampe Choila">Mushroom Choila</span>
+                                    <span class="item-sub" data-en="Fried mushrooms with onion, garlic, chili, coriander and Nepalese spices" data-da="Stegede svampe med løg, hvidløg, chili, koriander og nepalesiske krydderier">Fried mushrooms with onion, garlic, chili, coriander and Nepalese spices</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 79.</span>
@@ -362,46 +327,46 @@
                     <!-- Main Courses -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span>Main Courses</span>
+                            <span data-en="Main Courses" data-da="Hovedretter">Main Courses</span>
                             <span class="icon">+</span>
                         </button>
                         <div class="accordion-content">
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">MoMo Big (10 pcs)</span>
-                                    <span class="item-sub">Chicken or Vegan. Steamed dumplings with sesame-tomato chutney</span>
+                                    <span class="item-name" data-en="MoMo Big (10 pcs)" data-da="MoMo Big (10 stk)">MoMo Big (10 pcs)</span>
+                                    <span class="item-sub" data-en="Chicken or Vegan. Steamed dumplings with sesame-tomato chutney" data-da="Kylling eller Vegan. Dampede dumplings med sesam-tomat chutney">Chicken or Vegan. Steamed dumplings with sesame-tomato chutney</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 149.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Chow Mein</span>
-                                    <span class="item-sub">Chicken/Vegan | Shrimp DKK 145. Fried Nepalese noodles with vegetables</span>
+                                    <span class="item-name" data-en="Chow Mein" data-da="Chow Mein">Chow Mein</span>
+                                    <span class="item-sub" data-en="Chicken/Vegan | Shrimp DKK 145. Fried Nepalese noodles with vegetables" data-da="Kylling/Vegan | Rejer DKK 145. Stegte nepalesiske nudler med grøntsager">Chicken/Vegan | Shrimp DKK 145. Fried Nepalese noodles with vegetables</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 129.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Fried Rice</span>
-                                    <span class="item-sub">Chicken/Vegan | Shrimp DKK 145. Basmati rice with spices (+ fried egg DKK 15)</span>
+                                    <span class="item-name" data-en="Fried Rice" data-da="Stegte ris">Fried Rice</span>
+                                    <span class="item-sub" data-en="Chicken/Vegan | Shrimp DKK 145. Basmati rice with spices (+ fried egg DKK 15)" data-da="Kylling/Vegan | Rejer DKK 145. Basmati ris med krydderier (+ spejlæg DKK 15)">Chicken/Vegan | Shrimp DKK 145. Basmati rice with spices (+ fried egg DKK 15)</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 129.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Jhol MoMo (8 pcs)</span>
-                                    <span class="item-sub">Chicken/Vegan. Steamed dumplings served in hot and spicy soup</span>
+                                    <span class="item-name" data-en="Jhol MoMo (8 pcs)" data-da="Jhol MoMo (8 stk)">Jhol MoMo (8 pcs)</span>
+                                    <span class="item-sub" data-en="Chicken/Vegan. Steamed dumplings served in hot and spicy soup" data-da="Kylling/Vegan. Dampede dumplings serveret i varm og krydret suppe">Chicken/Vegan. Steamed dumplings served in hot and spicy soup</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 149.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Dhal Bhat Platter</span>
-                                    <span class="item-sub">Pre-order, min. 2 people. Rice, dhal, vegetables, saag and pickles (+ chicken DKK 59 / lamb DKK 89)</span>
+                                    <span class="item-name" data-en="Dhal Bhat Platter" data-da="Dhal Bhat Tallerken">Dhal Bhat Platter</span>
+                                    <span class="item-sub" data-en="Pre-order, min. 2 people. Rice, dhal, vegetables, saag and pickles (+ chicken DKK 59 / lamb DKK 89)" data-da="Forudbestilling, min. 2 personer. Ris, dhal, grøntsager, saag og pickles (+ kylling DKK 59 / lam DKK 89)">Pre-order, min. 2 people. Rice, dhal, vegetables, saag and pickles (+ chicken DKK 59 / lamb DKK 89)</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 159.</span>
@@ -412,22 +377,22 @@
                     <!-- Children's Menu -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span>Children's Menu</span>
+                            <span data-en="Children's Menu" data-da="Børnemenu">Children's Menu</span>
                             <span class="icon">+</span>
                         </button>
                         <div class="accordion-content">
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Chicken with rice</span>
-                                    <span class="item-sub">Served with fried vegetables</span>
+                                    <span class="item-name" data-en="Chicken with rice" data-da="Kylling med ris">Chicken with rice</span>
+                                    <span class="item-sub" data-en="Served with fried vegetables" data-da="Serveret med stegte grøntsager">Served with fried vegetables</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 79.</span>
                             </div>
                             <div class="menu-item-simple">
                                 <div class="item-details">
-                                    <span class="item-name">Dhal with rice</span>
-                                    <span class="item-sub">Served with fried vegetables</span>
+                                    <span class="item-name" data-en="Dhal with rice" data-da="Dhal med ris">Dhal with rice</span>
+                                    <span class="item-sub" data-en="Served with fried vegetables" data-da="Serveret med stegte grøntsager">Served with fried vegetables</span>
                                 </div>
                                 <span class="item-dots"></span>
                                 <span class="item-price">DKK 79.</span>
@@ -438,30 +403,30 @@
                     <!-- Extras -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span>Extras</span>
+                            <span data-en="Extras" data-da="Ekstra">Extras</span>
                             <span class="icon">+</span>
                         </button>
                         <div class="accordion-content">
-                            <div class="menu-item-simple"><span class="item-name">Rice</span><span class="item-dots"></span><span class="item-price">39 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Fried Vegetables</span><span class="item-dots"></span><span class="item-price">59 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Valley</span><span class="item-dots"></span><span class="item-price">59 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Saw</span><span class="item-dots"></span><span class="item-price">59 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Fermented Pickles</span><span class="item-dots"></span><span class="item-price">29 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Rice" data-da="Ris">Rice</span><span class="item-dots"></span><span class="item-price">39 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Fried Vegetables" data-da="Stegte grøntsager">Fried Vegetables</span><span class="item-dots"></span><span class="item-price">59 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Dal" data-da="Dal">Dal</span><span class="item-dots"></span><span class="item-price">59 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Saag" data-da="Saag">Saag</span><span class="item-dots"></span><span class="item-price">59 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Fermented Pickles" data-da="Gærede pickles">Fermented Pickles</span><span class="item-dots"></span><span class="item-price">29 kr.</span></div>
                         </div>
                     </div>
 
                     <!-- Desserts & Dips -->
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            <span>Desserts & Dips</span>
+                            <span data-en="Desserts & Dips" data-da="Desserter & Dips">Desserts & Dips</span>
                             <span class="icon">+</span>
                         </button>
                         <div class="accordion-content">
-                            <div class="menu-item-simple"><span class="item-name">Dessert of the Day</span><span class="item-dots"></span><span class="item-price">69 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Ice cream</span><span class="item-dots"></span><span class="item-price">69 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Tomato Chutney</span><span class="item-dots"></span><span class="item-price">20 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">Chili Sauce</span><span class="item-dots"></span><span class="item-price">20 kr.</span></div>
-                            <div class="menu-item-simple"><span class="item-name">MoMo Chutney</span><span class="item-dots"></span><span class="item-price">20 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Dessert of the Day" data-da="Dagens dessert">Dessert of the Day</span><span class="item-dots"></span><span class="item-price">69 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Ice cream" data-da="Is">Ice cream</span><span class="item-dots"></span><span class="item-price">69 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Tomato Chutney" data-da="Tomat chutney">Tomato Chutney</span><span class="item-dots"></span><span class="item-price">20 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="Chili Sauce" data-da="Chilisauce">Chili Sauce</span><span class="item-dots"></span><span class="item-price">20 kr.</span></div>
+                            <div class="menu-item-simple"><span class="item-name" data-en="MoMo Chutney" data-da="MoMo chutney">MoMo Chutney</span><span class="item-dots"></span><span class="item-price">20 kr.</span></div>
                         </div>
                     </div>
                 </div>
@@ -490,8 +455,8 @@
                                 <path d="M8 10c0-2 1-3 3-3s3 1 3 3"></path>
                             </svg>
                         </div>
-                        <h3 class="experience-card-title">Authentic Nepalese cuisine</h3>
-                        <p class="experience-card-text">Taste Nepal's authentic spices.</p>
+                        <h3 class="experience-card-title" data-en="Authentic Nepalese cuisine" data-da="Autentisk nepalesisk køkken">Authentic Nepalese cuisine</h3>
+                        <p class="experience-card-text" data-en="Taste Nepal's authentic spices." data-da="Smag Nepals autentiske krydderier.">Taste Nepal's authentic spices.</p>
                     </div>
 
                     <div class="experience-card">
@@ -501,8 +466,8 @@
                                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
                             </svg>
                         </div>
-                        <h3 class="experience-card-title">Created with passion</h3>
-                        <p class="experience-card-text">We only use carefully selected raw materials and genuine Nepalese spices.</p>
+                        <h3 class="experience-card-title" data-en="Created with passion" data-da="Skabt med passion">Created with passion</h3>
+                        <p class="experience-card-text" data-en="We only use carefully selected raw materials and genuine Nepalese spices." data-da="Vi bruger kun nøje udvalgte råvarer og ægte nepalesiske krydderier.">We only use carefully selected raw materials and genuine Nepalese spices.</p>
                     </div>
 
                     <div class="experience-card">
@@ -514,8 +479,8 @@
                                 <path d="M11 20c.5-1.5 1.5-3 4-3"></path>
                             </svg>
                         </div>
-                        <h3 class="experience-card-title">Fresh, local ingredients</h3>
-                        <p class="experience-card-text">Each dish is created by Nepalese chefs with experience and passion.</p>
+                        <h3 class="experience-card-title" data-en="Fresh, local ingredients" data-da="Friske, lokale ingredienser">Fresh, local ingredients</h3>
+                        <p class="experience-card-text" data-en="Each dish is created by Nepalese chefs with experience and passion." data-da="Hver ret er skabt af nepalesiske kokke med erfaring og passion.">Each dish is created by Nepalese chefs with experience and passion.</p>
                     </div>
 
                     <div class="experience-card">
@@ -526,8 +491,8 @@
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
                         </div>
-                        <h3 class="experience-card-title">Cozy atmosphere</h3>
-                        <p class="experience-card-text">A warm and atmospheric place where Nepal meets Copenhagen.</p>
+                        <h3 class="experience-card-title" data-en="Cozy atmosphere" data-da="Hyggelig atmosfære">Cozy atmosphere</h3>
+                        <p class="experience-card-text" data-en="A warm and atmospheric place where Nepal meets Copenhagen." data-da="Et varmt og stemningsfyldt sted, hvor Nepal møder København.">A warm and atmospheric place where Nepal meets Copenhagen.</p>
                     </div>
                 </div>
             </div>
@@ -566,7 +531,7 @@
                             <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                         <a href="https://www.tripadvisor.com/Restaurant_Review-g189541-d27516241-Reviews-Lamfuz-Copenhagen_Zealand.html" target="_blank" rel="noopener noreferrer" aria-label="Lamfuz on TripAdvisor">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21c-4.966 0-9-4.034-9-9s4.034-9 9-9 9 4.034 9 9-4.034 9-9 9zm3.5-9c1.381 0 2.5-1.119 2.5-2.5S16.881 7 15.5 7 13 8.119 13 9.5s1.119 2.5 2.5 2.5zm-7 0c1.381 0 2.5-1.119 2.5-2.5S9.881 7 8.5 7 6 8.119 6 9.5 7.119 12 8.5 12zm3.5 3.5c-2.49 0-4.75 1.049-6.364 2.734.605.768 1.352 1.406 2.207 1.853C9.15 19.395 10.5 19 12 19s2.85.395 4.157 1.087c.855-.447 1.602-1.085 2.207-1.853C16.25 16.549 14.49 15.5 12 15.5z"/></svg>
+                            <svg viewBox="0 0 500 500" fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M101.4 1H398.6C454.1 1 499 45.9 499 101.4V398.6C499 454.1 454.1 499 398.6 499H101.4C45.9 499 1 454.1 1 398.6V101.4C1 45.9 45.9 1 101.4 1ZM145.4 153.3C120.3 153.3 100 173.6 100 198.7C100 223.8 120.3 244.1 145.4 244.1C170.5 244.1 190.8 223.8 190.8 198.7C190.8 173.6 170.5 153.3 145.4 153.3ZM250 250C225.1 250 204.8 270.3 204.8 295.4C204.8 320.5 225.1 340.8 250 340.8C274.9 340.8 295.2 320.5 295.2 295.4C295.2 270.3 274.9 250 250 250ZM354.6 153.3C329.5 153.3 309.2 173.6 309.2 198.7C309.2 223.8 329.5 244.1 354.6 244.1C379.7 244.1 400 223.8 400 198.7C400 173.6 379.7 153.3 354.6 153.3ZM145.4 213.9C137 213.9 130.2 207.1 130.2 198.7C130.2 190.3 137 183.5 145.4 183.5C153.8 183.5 160.6 190.3 160.6 198.7C160.6 207.1 153.8 213.9 145.4 213.9ZM354.6 213.9C346.2 213.9 339.4 207.1 339.4 198.7C339.4 190.3 346.2 183.5 354.6 183.5C363 183.5 369.8 190.3 369.8 198.7C369.8 207.1 363 213.9 354.6 213.9ZM250 216.4C216.5 216.4 189.6 230.1 189.6 247.1V262.3H310.4V247.1C310.4 230.1 283.5 216.4 250 216.4Z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -580,6 +545,12 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <div class="find-smiley-section" style="margin-bottom: 2rem; display: flex; justify-content: center;">
+                <a href="https://www.findsmiley.dk/Sider/Search.aspx?k=lamfuz" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 500; font-family: var(--font-main);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #cc5500;"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    <span>Find Smiley</span>
+                </a>
+            </div>
             <p data-en="&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved." data-da="&copy; 2025 Lamfuz Nepali Cuisine. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
             <p style="margin-top: 0.5rem;"><a href="https://booking.favouritetable.com/guest/validate?cc=607" target="_blank" style="color: inherit; text-decoration: underline; font-size: 0.8rem;" data-en="Request Personal Data (GDPR)" data-da="Anmod om persondata (GDPR)">Request Personal Data (GDPR)</a></p>
         </div>

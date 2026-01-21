@@ -296,6 +296,136 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeElements = document.querySelectorAll('.section, .gallery-container, .menu-section, .about-content, .contact-container, .experience-grid, .reservation-container');
     fadeElements.forEach(el => observer.observe(el));
 
+    // Gallery Slider Navigation with Infinite Loop
+    const galleryTrack = document.getElementById('galleryTrack');
+    const galleryPrev = document.getElementById('galleryPrev');
+    const galleryNext = document.getElementById('galleryNext');
+
+    if (galleryTrack && galleryPrev && galleryNext) {
+        // Clone items for seamless loop
+        const originalItems = Array.from(galleryTrack.children);
+        const visibleItems = window.innerWidth <= 650 ? 1 : 2;
+        
+        // Remove any fade classes from original items before cloning to prevent double animations
+        originalItems.forEach(item => item.classList.remove('fade-in-up'));
+        
+        const firstSet = originalItems.slice(0, visibleItems).map(item => item.cloneNode(true));
+        const lastSet = originalItems.slice(-visibleItems).map(item => item.cloneNode(true));
+        
+        firstSet.forEach(clone => galleryTrack.appendChild(clone));
+        lastSet.reverse().forEach(clone => {
+            const firstChild = galleryTrack.firstChild;
+            galleryTrack.insertBefore(clone, firstChild);
+        });
+        
+        const getItemWidth = () => galleryTrack.offsetWidth / (window.innerWidth <= 650 ? 1 : 2);
+        
+        let isMoving = false;
+        
+        // Initial position after clones
+        const initialShift = getItemWidth() * (window.innerWidth <= 650 ? 1 : 2);
+        galleryTrack.scrollLeft = initialShift;
+
+        const handleLoop = () => {
+            const currentScroll = galleryTrack.scrollLeft;
+            const maxScroll = galleryTrack.scrollWidth - galleryTrack.clientWidth;
+            const buffer = 2; // Tighter buffer
+            const shift = getItemWidth() * (window.innerWidth <= 650 ? 1 : 2);
+
+            if (currentScroll <= buffer) {
+                galleryTrack.scrollLeft = maxScroll - shift;
+            } else if (currentScroll >= maxScroll - buffer) {
+                galleryTrack.scrollLeft = shift;
+            }
+        };
+
+        galleryNext.addEventListener('click', () => {
+            if (isMoving) return;
+            isMoving = true;
+            
+            galleryTrack.scrollTo({
+                left: galleryTrack.scrollLeft + galleryTrack.offsetWidth,
+                behavior: 'smooth'
+            });
+            
+            // Wait for smooth scroll to finish
+            setTimeout(() => {
+                handleLoop();
+                isMoving = false;
+            }, 600);
+        });
+
+        galleryPrev.addEventListener('click', () => {
+            if (isMoving) return;
+            isMoving = true;
+            
+            galleryTrack.scrollTo({
+                left: galleryTrack.scrollLeft - galleryTrack.offsetWidth,
+                behavior: 'smooth'
+            });
+            
+            setTimeout(() => {
+                handleLoop();
+                isMoving = false;
+            }, 600);
+        });
+
+        window.addEventListener('resize', () => {
+            const newShift = getItemWidth() * (window.innerWidth <= 650 ? 1 : 2);
+            galleryTrack.scrollLeft = newShift; 
+        });
+
+        // Loop check on manual scroll
+        galleryTrack.addEventListener('scroll', () => {
+            if (!isMoving) {
+                clearTimeout(galleryTrack.scrollTimeout);
+                galleryTrack.scrollTimeout = setTimeout(handleLoop, 100);
+            }
+        });
+
+        // Drag to Slide functionality
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        galleryTrack.addEventListener('mousedown', (e) => {
+            isDown = true;
+            galleryTrack.classList.add('active');
+            startX = e.pageX - galleryTrack.offsetLeft;
+            scrollLeft = galleryTrack.scrollLeft;
+            galleryTrack.style.cursor = 'grabbing';
+            galleryTrack.style.scrollBehavior = 'auto'; // Disable smooth for real-time drag
+        });
+
+        galleryTrack.addEventListener('mouseleave', () => {
+            if (!isDown) return;
+            isDown = false;
+            galleryTrack.style.cursor = 'pointer';
+            galleryTrack.style.scrollBehavior = 'smooth';
+            handleLoop();
+        });
+
+        galleryTrack.addEventListener('mouseup', () => {
+            isDown = false;
+            galleryTrack.style.cursor = 'pointer';
+            galleryTrack.style.scrollBehavior = 'smooth';
+            handleLoop();
+        });
+
+        galleryTrack.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - galleryTrack.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            galleryTrack.scrollLeft = scrollLeft - walk;
+        });
+
+        // Prevent ghost images when dragging
+        galleryTrack.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+    }
+
     // Smooth Scrolling for Anchor Links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
@@ -313,72 +443,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // ============ GALLERY SLIDER ============
-    const sliderTrack = document.querySelector('.slider-track');
-    const sliderItems = document.querySelectorAll('.slider-item');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    const dotsContainer = document.querySelector('.slider-dots');
-
-    if (sliderTrack && sliderItems.length > 0) {
-        // Create dots
-        sliderItems.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = `dot ${index === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => {
-                sliderTrack.scrollTo({
-                    left: sliderTrack.offsetWidth * index,
-                    behavior: 'smooth'
-                });
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.dot');
-
-        // Update dots on scroll
-        sliderTrack.addEventListener('scroll', () => {
-            const index = Math.round(sliderTrack.scrollLeft / sliderTrack.offsetWidth);
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        });
-
-        // Next/Prev buttons
-        nextBtn?.addEventListener('click', () => {
-            const nextScroll = sliderTrack.scrollLeft + sliderTrack.offsetWidth;
-            if (nextScroll >= sliderTrack.scrollWidth - 10) { // Small buffer for rounding
-                sliderTrack.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                sliderTrack.scrollBy({ left: sliderTrack.offsetWidth, behavior: 'smooth' });
-            }
-        });
-
-        prevBtn?.addEventListener('click', () => {
-            const prevScroll = sliderTrack.scrollLeft - sliderTrack.offsetWidth;
-            if (prevScroll < -10) {
-                sliderTrack.scrollTo({ left: sliderTrack.scrollWidth, behavior: 'smooth' });
-            } else {
-                sliderTrack.scrollBy({ left: -sliderTrack.offsetWidth, behavior: 'smooth' });
-            }
-        });
-
-        // Auto-play
-        let autoPlayInterval = setInterval(() => {
-            nextBtn?.click();
-        }, 5000);
-
-        // Pause auto-play on interaction
-        sliderTrack.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-        sliderTrack.addEventListener('touchstart', () => clearInterval(autoPlayInterval));
-        sliderTrack.addEventListener('mouseleave', () => {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(() => {
-                nextBtn?.click();
-            }, 5000);
-        });
-    }
 });
 
 // Lazy-load booking iframe + widget
@@ -428,3 +492,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, {passive:true});
 })();
+
+// ============ BOOKING CALENDAR WIDGET ============
+(function() {
+    // Custom booking logic removed in favor of direct widget integration
+})();
+

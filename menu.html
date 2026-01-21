@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favouritetable Booking Widget (deferred) -->
     <!-- Deferred: injected on user intent or when booking section is visible -->
@@ -73,10 +73,11 @@
     </script>
     <style>
         .full-menu-page {
-            background-color: #FBF3E6;
+            background-color: #fff5e1;
             padding: 0; /* Removed top padding to accommodate hero */
             min-height: 100vh;
-            color: #d64545;
+            color: #cc5500; /* Brick red for body text */
+            font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
         }
         .menu-hero {
             position: relative;
@@ -118,7 +119,7 @@
             pointer-events: none;
         }
         .menu-section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Amagro', serif;
             font-size: 4rem;
             text-align: center;
             color: white;
@@ -138,16 +139,18 @@
             margin-bottom: 3rem;
         }
         .cat-name {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Amagro', serif;
             font-size: 1.8rem;
-            border-bottom: 2px solid #d64545;
+            border-bottom: 2px solid #cc5500;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
+            color: #cc5500;
         }
         .menu-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
+            font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
             font-size: 1.1rem;
         }
         .dish-name {
@@ -189,10 +192,11 @@
             display: block;
             text-align: center;
             margin: 4rem 0 8rem;
-            color: #d64545;
+            color: #cc5500;
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 1px;
+            font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
         }
         .back-home:hover {
             text-decoration: underline;
@@ -243,7 +247,7 @@
             justify-content: center;
         }
         .menu-section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Amagro', serif;
             font-size: 5rem; /* Larger, more dramatic */
             text-align: center;
             color: white;
@@ -287,7 +291,7 @@
                     <span class="mobile-lang-divider">/</span>
                     <a href="#" class="mobile-lang-link" data-lang="da">DA</a>
                 </div>
-                <a href="index.html#booking" class="btn-book" data-en="Book" data-da="Bestil">Book</a>
+                <a href="index.html#booking" class="btn-book" data-en="Book a Table" data-da="Bestil et Bord">Book a Table</a>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -301,49 +305,49 @@
         <a href="menu.html" class="mobile-nav-link" data-en="MENU" data-da="MENU">MENU</a>
         <a href="about.html" class="mobile-nav-link" data-en="ABOUT LAMFUZ" data-da="OM LAMFUZ">ABOUT LAMFUZ</a>
         <a href="contact.html" class="mobile-nav-link" data-en="CONTACT" data-da="KONTAKT">CONTACT</a>
-        <a href="index.html#booking" class="mobile-nav-link" data-en="Book" data-da="Bestil">Book</a>
+        <a href="index.html#booking" class="mobile-nav-link" data-en="Book a Table" data-da="Bestil et Bord">Book a Table</a>
     </div>
 
     <main class="full-menu-page">
         <div class="menu-hero">
             <img src="public/assets/images/Space-1_1-1_Side-lg.webp" srcset="public/assets/images/Space-1_1-1_Side-sm.webp 600w, public/assets/images/Space-1_1-1_Side-med.webp 1000w, public/assets/images/Space-1_1-1_Side-lg.webp 1600w" sizes="(max-width: 768px) 100vw, 80vw" alt="Lamfuz Restaurant Interior" class="menu-hero-img">
             <div class="menu-hero-overlay">
-                <h1 class="menu-section-title">Our Full Menu</h1>
-                <p class="menu-hero-subtitle">Authentic Nepali Flavors</p>
+                <h1 class="menu-section-title" data-en="Our Full Menu" data-da="Vores fulde menu">Our Full Menu</h1>
+                <p class="menu-hero-subtitle" data-en="Authentic Nepali Flavors" data-da="Autentiske nepalesiske smagsoplevelser">Authentic Nepali Flavors</p>
             </div>
         </div>
         
         <div class="full-menu-grid">
             <!-- Appetizers -->
             <div class="menu-cat-block">
-                <h2 class="cat-name">Appetizers</h2>
+                <h2 class="cat-name" data-en="Appetizers" data-da="Forretter">Appetizers</h2>
                 <div class="menu-row">
                     <span class="dish-name">Papad</span>
                     <span class="dish-price">20 kr.</span>
                 </div>
-                <span class="dish-subtext">Thinly toasted crispy made from lentil flour</span>
+                <span class="dish-subtext" data-en="Thinly toasted crispy made from lentil flour" data-da="Tyndt ristet sprødt lavet af linsemel">Thinly toasted crispy made from lentil flour</span>
                 
                 <div class="menu-row">
                     <span class="dish-name">Cucumber Bites</span>
                     <span class="dish-price">59 kr.</span>
                 </div>
-                <span class="dish-subtext">Freshly seasoned with sesame, coriander and lemon juice</span>
+                <span class="dish-subtext" data-en="Freshly seasoned with sesame, coriander and lemon juice" data-da="Frisk krydret med sesamfrø, koriander og citronsaft">Freshly seasoned with sesame, coriander and lemon juice</span>
             </div>
 
             <!-- Starters -->
             <div class="menu-cat-block">
-                <h2 class="cat-name">Starters</h2>
+                <h2 class="cat-name" data-en="Starters" data-da="Forretter">Starters</h2>
                 <div class="menu-row">
                     <span class="dish-name">Salad bowl</span>
                     <span class="dish-price">59 kr.</span>
                 </div>
-                <span class="dish-subtext">Crispy vegetable salad with sesame, green chili, coriander and turmeric oil</span>
+                <span class="dish-subtext" data-en="Crispy vegetable salad with sesame, green chili, coriander and turmeric oil" data-da="Sprød grøntsalat med sesamfrø, grøn chili, koriander og gurkemejeolie">Crispy vegetable salad with sesame, green chili, coriander and turmeric oil</span>
                 
                 <div class="menu-row">
                     <span class="dish-name">MoMo (5 pcs)</span>
                     <span class="dish-price">75 kr.</span>
                 </div>
-                <span class="dish-subtext">Chicken or Vegan. Steamed Nepalese dumplings</span>
+                <span class="dish-subtext" data-en="Chicken or Vegan. Steamed Nepalese dumplings" data-da="Kylling eller Vegan. Dampede nepalesiske dumplings">Chicken or Vegan. Steamed Nepalese dumplings</span>
                 
                 <div class="menu-row">
                     <span class="dish-name">Chicken Choila</span>
@@ -361,45 +365,45 @@
 
             <!-- Main Courses -->
             <div class="menu-cat-block">
-                <h2 class="cat-name">Main Courses</h2>
+                <h2 class="cat-name" data-en="Main Courses" data-da="Hovedretter">Main Courses</h2>
                 <div class="menu-row">
-                    <span class="dish-name">MoMo Big (10 pcs)</span>
+                    <span class="dish-name" data-en="MoMo Big (10 pcs)" data-da="MoMo Big (10 stk)">MoMo Big (10 pcs)</span>
                     <span class="dish-price">149 kr.</span>
                 </div>
                 <div class="menu-row">
                     <span class="dish-name">Chow Mein</span>
                     <span class="dish-price">129 kr.</span>
                 </div>
-                <span class="dish-subtext">Chicken/Vegan | Shrimp 145 kr.</span>
+                <span class="dish-subtext" data-en="Chicken/Vegan | Shrimp 145 kr." data-da="Kylling/Vegan | Rejer 145 kr.">Chicken/Vegan | Shrimp 145 kr.</span>
                 
                 <div class="menu-row">
                     <span class="dish-name">Fried Rice</span>
                     <span class="dish-price">129 kr.</span>
                 </div>
-                <span class="dish-subtext">Chicken/Vegan | Shrimp 145 kr.</span>
+                <span class="dish-subtext" data-en="Chicken/Vegan | Shrimp 145 kr." data-da="Kylling/Vegan | Rejer 145 kr.">Chicken/Vegan | Shrimp 145 kr.</span>
                 
                 <div class="menu-row">
-                    <span class="dish-name">Jhol MoMo (8 pcs)</span>
+                    <span class="dish-name" data-en="Jhol MoMo (8 pcs)" data-da="Jhol MoMo (8 stk)">Jhol MoMo (8 pcs)</span>
                     <span class="dish-price">149 kr.</span>
                 </div>
                 <div class="menu-row">
                     <span class="dish-name">Dhal Bhat Platter</span>
                     <span class="dish-price">159 kr.</span>
                 </div>
-                <span class="dish-subtext">Pre-order, min. 2 people</span>
+                <span class="dish-subtext" data-en="Pre-order, min. 2 people" data-da="Forudbestilling, min. 2 personer">Pre-order, min. 2 people</span>
                 <div class="offer-bookings" style="margin-top: 1rem; font-size: 0.9rem;">
                     <p style="margin-bottom: 0.5rem; font-weight: 600;" data-en="Book Special Offer:" data-da="Bestil specialtilbud:">Book Special Offer:</p>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 0.5rem;">
-                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4803'); return false;" style="color: #d64545; text-decoration: underline;" data-en="Chicken Dal Bhat Platter" data-da="Kylling Dal Bhat Platter">Chicken Dal Bhat Platter</a>
+                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4803'); return false;" style="color: #cc5500; text-decoration: underline;" data-en="Chicken Dal Bhat Platter" data-da="Kylling Dal Bhat Platter">Chicken Dal Bhat Platter</a>
                             <div id='ft_offerbookingwidget2125_4803' sitecode='2125' c='live' offer='4803'></div>
                         </li>
                         <li style="margin-bottom: 0.5rem;">
-                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4804'); return false;" style="color: #d64545; text-decoration: underline;" data-en="Lamb Dal Bhat Platter" data-da="Lam Dal Bhat Platter">Lamb Dal Bhat Platter</a>
+                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4804'); return false;" style="color: #cc5500; text-decoration: underline;" data-en="Lamb Dal Bhat Platter" data-da="Lam Dal Bhat Platter">Lamb Dal Bhat Platter</a>
                             <div id='ft_offerbookingwidget2125_4804' sitecode='2125' c='live' offer='4804'></div>
                         </li>
                         <li>
-                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4729'); return false;" style="color: #d64545; text-decoration: underline;" data-en="Vegan Dal Bhat Platter" data-da="Vegansk Dal Bhat Platter">Vegan Dal Bhat Platter</a>
+                            <a href="#" onclick="ft_showbookingwidget('ft_offerbookingwidget2125_4729'); return false;" style="color: #cc5500; text-decoration: underline;" data-en="Vegan Dal Bhat Platter" data-da="Vegansk Dal Bhat Platter">Vegan Dal Bhat Platter</a>
                             <div id='ft_offerbookingwidget2125_4729' sitecode='2125' c='live' offer='4729'></div>
                         </li>
                     </ul>
@@ -408,41 +412,41 @@
 
             <!-- Children's Menu -->
             <div class="menu-cat-block">
-                <h2 class="cat-name">Children's Menu</h2>
+                <h2 class="cat-name" data-en="Children's Menu" data-da="Børnemenu">Children's Menu</h2>
                 <div class="menu-row">
-                    <span class="dish-name">Chicken with rice</span>
+                    <span class="dish-name" data-en="Chicken with rice" data-da="Kylling med ris">Chicken with rice</span>
                     <span class="dish-price">79 kr.</span>
                 </div>
                 <div class="menu-row">
-                    <span class="dish-name">Dhal with rice</span>
+                    <span class="dish-name" data-en="Dhal with rice" data-da="Dhal med ris">Dhal with rice</span>
                     <span class="dish-price">79 kr.</span>
                 </div>
             </div>
 
             <!-- Extras -->
             <div class="menu-cat-block">
-                <h2 class="cat-name">Extras</h2>
-                <div class="menu-row"><span class="dish-name">Rice</span><span class="dish-price">39 kr.</span></div>
-                <div class="menu-row"><span class="dish-name">Fried Vegetables</span><span class="dish-price">59 kr.</span></div>
-                <div class="menu-row"><span class="dish-name">Dal</span><span class="dish-price">59 kr.</span></div>
-                <div class="menu-row"><span class="dish-name">Fermented Pickles</span><span class="dish-price">29 kr.</span></div>
+                <h2 class="cat-name" data-en="Extras" data-da="Tillæg">Extras</h2>
+                <div class="menu-row"><span class="dish-name" data-en="Rice" data-da="Ris">Rice</span><span class="dish-price">39 kr.</span></div>
+                <div class="menu-row"><span class="dish-name" data-en="Fried Vegetables" data-da="Stegte grøntsager">Fried Vegetables</span><span class="dish-price">59 kr.</span></div>
+                <div class="menu-row"><span class="dish-name" data-en="Dal" data-da="Dal">Dal</span><span class="dish-price">59 kr.</span></div>
+                <div class="menu-row"><span class="dish-name" data-en="Fermented Pickles" data-da="Gærede pickles">Fermented Pickles</span><span class="dish-price">29 kr.</span></div>
             </div>
 
             <!-- Desserts & Dips -->
             <div class="menu-cat-block">
-                <h2 class="cat-name">Desserts & Dips</h2>
-                <div class="menu-row"><span class="dish-name">Dessert of the Day</span><span class="dish-price">69 kr.</span></div>
-                <div class="menu-row"><span class="dish-name">Ice cream</span><span class="dish-price">69 kr.</span></div>
-                <div class="menu-row"><span class="dish-name">Tomato Chutney</span><span class="dish-price">20 kr.</span></div>
-                <div class="menu-row"><span class="dish-name">Chili Sauce</span><span class="dish-price">20 kr.</span></div>
+                <h2 class="cat-name" data-en="Desserts & Dips" data-da="Desserter & Dips">Desserts & Dips</h2>
+                <div class="menu-row"><span class="dish-name" data-en="Dessert of the Day" data-da="Dagens dessert">Dessert of the Day</span><span class="dish-price">69 kr.</span></div>
+                <div class="menu-row"><span class="dish-name" data-en="Ice cream" data-da="Is">Ice cream</span><span class="dish-price">69 kr.</span></div>
+                <div class="menu-row"><span class="dish-name" data-en="Tomato Chutney" data-da="Tomat Chutney">Tomato Chutney</span><span class="dish-price">20 kr.</span></div>
+                <div class="menu-row"><span class="dish-name" data-en="Chili Sauce" data-da="Chili Sauce">Chili Sauce</span><span class="dish-price">20 kr.</span></div>
             </div>
         </div>
 
-        <p style="text-align: center; margin-top: 4rem; font-style: italic;">
+        <p style="text-align: center; margin-top: 4rem; font-style: italic;" data-en="All dishes are prepared fresh every day. Vegan and gluten-free options are available upon request." data-da="Alle retter tilberedes friske hver dag. Veganske og glutenfri muligheder er tilgængelige efter anmodning.">
             All dishes are prepared fresh every day. Vegan and gluten-free options are available upon request.
         </p>
 
-        <a href="index.html" class="back-home">← BACK TO HOME</a>
+        <a href="index.html" class="back-home" data-en="← BACK TO HOME" data-da="← TILBAGE TIL FORSIDE">← BACK TO HOME</a>
     </main>
 
     <footer class="main-footer">
@@ -477,7 +481,7 @@
                             <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                         <a href="https://www.tripadvisor.com/Restaurant_Review-g189541-d27516241-Reviews-Lamfuz-Copenhagen_Zealand.html" target="_blank" rel="noopener noreferrer" aria-label="Lamfuz on TripAdvisor">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 21c-4.966 0-9-4.034-9-9s4.034-9 9-9 9 4.034 9 9-4.034 9-9 9zm3.5-9c1.381 0 2.5-1.119 2.5-2.5S16.881 7 15.5 7 13 8.119 13 9.5s1.119 2.5 2.5 2.5zm-7 0c1.381 0 2.5-1.119 2.5-2.5S9.881 7 8.5 7 6 8.119 6 9.5 7.119 12 8.5 12zm3.5 3.5c-2.49 0-4.75 1.049-6.364 2.734.605.768 1.352 1.406 2.207 1.853C9.15 19.395 10.5 19 12 19s2.85.395 4.157 1.087c.855-.447 1.602-1.085 2.207-1.853C16.25 16.549 14.49 15.5 12 15.5z"/></svg>
+                            <svg viewBox="0 0 500 500" fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M101.4 1H398.6C454.1 1 499 45.9 499 101.4V398.6C499 454.1 454.1 499 398.6 499H101.4C45.9 499 1 454.1 1 398.6V101.4C1 45.9 45.9 1 101.4 1ZM145.4 153.3C120.3 153.3 100 173.6 100 198.7C100 223.8 120.3 244.1 145.4 244.1C170.5 244.1 190.8 223.8 190.8 198.7C190.8 173.6 170.5 153.3 145.4 153.3ZM250 250C225.1 250 204.8 270.3 204.8 295.4C204.8 320.5 225.1 340.8 250 340.8C274.9 340.8 295.2 320.5 295.2 295.4C295.2 270.3 274.9 250 250 250ZM354.6 153.3C329.5 153.3 309.2 173.6 309.2 198.7C309.2 223.8 329.5 244.1 354.6 244.1C379.7 244.1 400 223.8 400 198.7C400 173.6 379.7 153.3 354.6 153.3ZM145.4 213.9C137 213.9 130.2 207.1 130.2 198.7C130.2 190.3 137 183.5 145.4 183.5C153.8 183.5 160.6 190.3 160.6 198.7C160.6 207.1 153.8 213.9 145.4 213.9ZM354.6 213.9C346.2 213.9 339.4 207.1 339.4 198.7C339.4 190.3 346.2 183.5 354.6 183.5C363 183.5 369.8 190.3 369.8 198.7C369.8 207.1 363 213.9 354.6 213.9ZM250 216.4C216.5 216.4 189.6 230.1 189.6 247.1V262.3H310.4V247.1C310.4 230.1 283.5 216.4 250 216.4Z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -491,6 +495,12 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <div class="find-smiley-section" style="margin-bottom: 2rem; display: flex; justify-content: center;">
+                <a href="https://www.findsmiley.dk/Sider/Search.aspx?k=lamfuz" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 500; font-family: var(--font-main);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #cc5500;"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    <span>Find Smiley</span>
+                </a>
+            </div>
             <p data-en="&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved." data-da="&copy; 2025 Lamfuz Nepali Cuisine. Alle rettigheder forbeholdes.">&copy; 2025 Lamfuz Nepali Cuisine. All rights reserved.</p>
             <p style="margin-top: 0.5rem;"><a href="https://booking.favouritetable.com/guest/validate?cc=607" target="_blank" style="color: inherit; text-decoration: underline; font-size: 0.8rem;" data-en="Request Personal Data (GDPR)" data-da="Anmod om persondata (GDPR)">Request Personal Data (GDPR)</a></p>
         </div>

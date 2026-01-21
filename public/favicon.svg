@@ -1,6 +1,6 @@
 <svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-  <!-- Red background -->
-  <rect width="256" height="256" fill="#c41e3a"/>
-  <!-- Saffron "L" logo -->
-  <text x="128" y="180" font-family="Arial, sans-serif" font-size="160" font-weight="bold" fill="#d69a3d" text-anchor="middle">L</text>
+  <!-- Burnt Orange background -->
+  <rect width="256" height="256" fill="#cc5500"/>
+  <!-- Cosmic Latte "L" logo -->
+  <text x="128" y="180" font-family="Arial, sans-serif" font-size="160" font-weight="bold" fill="#fff5e1" text-anchor="middle">L</text>
 </svg>
